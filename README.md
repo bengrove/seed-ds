@@ -30,9 +30,41 @@ seed-ds/
 
 ## Install as a Claude Code skill
 
+Prerequisite: [Claude Code CLI](https://docs.claude.com/en/docs/claude-code) installed and authenticated (`claude` on your PATH).
+
+**1. Start Claude Code in your project**
+
+```bash
+cd path/to/your/project
+claude
+```
+
+**2. Add the marketplace and install the plugin**
+
+Inside the Claude Code session, run:
+
 ```
 /plugin marketplace add bengrove/seed-ds
 /plugin install seed@seed-ds
+```
+
+**3. Verify it's installed**
+
+```
+/plugin list
+```
+
+You should see `seed` under installed plugins. The skill auto-activates on UI/design tasks — no manual invocation needed. To force-load it, reference it directly:
+
+```
+Use the seed skill to build a pricing section.
+```
+
+**4. Update or remove**
+
+```
+/plugin update seed@seed-ds
+/plugin uninstall seed@seed-ds
 ```
 
 Once installed, any UI task in Claude Code reads `SKILL.md` and emits code against Seed's rules in your target stack.
