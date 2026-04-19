@@ -16,14 +16,22 @@ seed-ds/
 │       └── references/
 │           ├── tokens.md        Every design token with usage rules
 │           ├── components.md    Component inventory, anatomy, states
-│           ├── voice.md         TOV, copy patterns, microcopy library
+│           ├── voice.md         Index pointing to copy/*.md
+│           ├── copy/
+│           │   ├── tov.md       Three pillars, formulas, funnel-stage voice mix
+│           │   ├── mechanics.md Grammar, punctuation, citations, casing, emoji
+│           │   ├── vocabulary.md Defined terms, product naming, Elevated vs. Simple
+│           │   ├── surfaces.md  Per-surface rules (home, PLP, PDP, cart, email, ads, social)
+│           │   ├── microcopy.md CTAs, errors, empty states, subscription controls (verbatim strings)
+│           │   ├── compliance.md Structure/function vs. disease, FDA disclaimer, strain claims
+│           │   └── examples.md  Approved copy by funnel stage and pillar
 │           ├── patterns.md      Landers, PDP, member experience flows
 │           ├── theming.md       Light/dark, stack translation (shadcn, Tailwind)
 │           ├── responsive.md    Breakpoints, grid, container rules
 │           ├── motion.md        Easing, durations, overlay rules
 │           ├── assets.md        Bynder CDN, naming, imagery rules
 │           ├── lessons.md       Gotchas and decisions from real builds
-│           └── examples.md      Copy-ready composition snippets
+│           └── examples.md      Copy-ready composition snippets (React/HTML with tokens)
 ├── README.md                    You are here
 └── LICENSE
 ```
@@ -88,7 +96,7 @@ During Claude Design onboarding, point it at this repo plus the component librar
 
 **Tokens:** stable. Source of truth is the tokens repo (Style Dictionary / Tokens Studio). This skill mirrors them for agent context.
 
-**Voice:** documented from brand TOV and copy style guide.
+**Voice:** documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
 
 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows.
 

@@ -19,9 +19,32 @@ Do not activate for internal tooling, unstyled prototypes explicitly scoped as s
 On activation, read in this order:
 1. This file (you are here)
 2. `references/tokens.md` for visual primitives
-3. `references/voice.md` for copy rules
+3. `references/voice.md` as the index to copy rules (points you to `copy/*.md`)
 4. Relevant surface-specific reference: `patterns.md`, `components.md`, or `theming.md`
 5. `references/lessons.md` before shipping, to avoid known gotchas
+
+### Copy-specific read order
+
+Any task that produces user-facing copy (marketing, UX, microcopy, claims, promos) additionally reads from `references/copy/`:
+
+1. `references/voice.md` (index, always first for copy work)
+2. `references/copy/tov.md` (three pillars, formulas, funnel-stage voice mix) — **always read for copy tasks**
+3. `references/copy/microcopy.md` — read when writing CTAs, form labels, errors, empty states, loading, subscription controls, toasts, tooltips
+4. `references/copy/surfaces.md` — read when the task specifies a surface (homepage, PLP, PDP, cart, checkout, email, ad, social, TV, promo)
+5. `references/copy/vocabulary.md` — read when choosing between two phrasings, naming a product, or deciding Elevated vs. Simple register
+6. `references/copy/mechanics.md` — read for punctuation, citations, capitalization, emoji, numbers, casing by channel
+7. `references/copy/compliance.md` — **required read** for any health, efficacy, or outcome claim; covers FDA disclaimer and structure/function vs. disease language
+8. `references/copy/examples.md` — read for approved copy patterns by funnel stage and pillar
+
+### Copy task trigger keywords
+
+If the task mentions any of these, apply the copy read order:
+- Headline, subhead, hero, module copy
+- CTA, button, microcopy, label, error, tooltip, empty state, toast
+- Promo, banner, subject line, ad, email
+- Claim, benefit, RTB (reason to believe), BDQ (buyer decision question)
+- Pause, cancel, resume, skip, subscription flow
+- Tone, voice, on-brand, brand voice
 
 ## Non-negotiable principles
 
@@ -48,7 +71,16 @@ The Figma component library is ahead of this skill in some areas. If a component
 
 ## Voice source of truth
 
-`references/voice.md` mirrors the brand TOV and copy style guide. If generating copy, read it in full. Never generate marketing claims without checking voice rules, especially around health, efficacy, and regulatory language.
+`references/voice.md` is the index. The actual rules live in seven files under `references/copy/`:
+- `tov.md` (tone of voice: three pillars, formulas, funnel-stage mix)
+- `mechanics.md` (grammar, punctuation, citations, casing, emoji)
+- `vocabulary.md` (defined terms, product naming, Elevated vs. Simple)
+- `surfaces.md` (per-surface length, structure, performance benchmarks)
+- `microcopy.md` (CTAs, errors, empty states, subscription controls, verbatim strings)
+- `compliance.md` (structure/function vs. disease, FDA disclaimer, strain claims)
+- `examples.md` (approved copy by funnel stage and pillar)
+
+These files mirror the Brand TOV 2025 deck, Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. If the sources update, update these files and flag the change. Never generate marketing claims without checking `compliance.md`.
 
 ## Asset handling
 

@@ -1,193 +1,84 @@
 # Voice
 
-Mirrors the Seed brand TOV and copy style guide. Read before generating any user-facing copy. When in doubt, default to clarity over cleverness.
+Voice for Seed is split across seven focused files in `copy/`. This file is the index. Read it first, then jump to the file you need.
 
-## Voice pillars
+**Sources of truth:**
+- Brand TOV 2025 (Figma deck: `F0GLIVKZ0uByZmaivVhcoJ`)
+- Seed Copy Style Guide 2026
+- Seed UX and Microcopy Best Practices
 
-1. **Scientific but not clinical.** Reference mechanisms, studies, and strains with precision, but translate for a human. The reader is smart and curious, not a researcher.
-2. **Confident but not boastful.** Claims are specific and backed. Avoid superlatives without evidence.
-3. **Warm but not cute.** Friendly and direct. No emoji in product copy. No wink-wink tone.
-4. **Plain but not boring.** Short sentences, concrete verbs, active voice. Rhythm matters.
-
-## Always
-
-- Lead with what the user gets, not what Seed does.
-- Use "you" and "your." Address the reader directly.
-- Write at an 8th-grade reading level for marketing, 10th for education content.
-- Cite sources for health claims inline when possible.
-- Give users control language: "you can pause," "skip anytime," "change your mind."
-
-## Never
-
-- Medical claims without citation ("cures," "treats," "prevents" for non-drug products).
-- Fear-based framing ("without Seed, your gut is...").
-- Jargon without definition on first use.
-- Ellipses for dramatic effect.
-- ALL CAPS for emphasis. Use italics or a distinct visual treatment.
-- Exclamation marks in product copy. Marketing surfaces allow one per surface max.
-- Em dashes (brand preference).
-- Emoji in product UI. Marketing surfaces allow deliberate, sparing use.
-
-## Copy patterns
-
-### Headlines
-
-- Marketing hero: 3-8 words, one clear promise, no passive voice.
-- Section: 2-5 words, noun-first when possible.
-- Product detail: name the benefit, not the feature.
-
-Good: "Daily Synbiotic DS-01"
-Not: "Introducing our revolutionary new synbiotic"
-
-### Body
-
-- Lead sentence carries the point. Everything after supports.
-- Paragraphs are 1-3 sentences.
-- Lists over prose when 3 or more parallel items.
-
-### Microcopy
-
-#### Buttons
-
-- Action verbs, 1-3 words.
-- Never "Click here," "Submit," or "OK" alone.
-- Confirm what will happen: "Start subscription," "Pause 1 month," "Cancel order."
-
-Good: "Start your subscription"
-Not: "Get started"
-
-#### Form labels
-
-- Sentence case, no colons.
-- Plain language: "Email" not "Email address" unless ambiguous.
-- Required fields are marked with an asterisk and explained once per form.
-
-#### Errors
-
-- Tell the user what happened and what to do next. Always both.
-- No blame. Never "you entered" or "you forgot."
-- Short. Under 12 words when possible.
-
-Good: "We need a valid email to send your order updates."
-Not: "Error: Invalid email format entered by user."
-
-#### Empty states
-
-- Explain why it's empty.
-- Offer a next step.
-- Use Seed voice, not default system copy.
-
-Good: "No orders yet. Your first delivery arrives 2 days after you subscribe."
-Not: "No data available."
-
-#### Success states
-
-- Confirm what happened.
-- Tell the user what comes next if relevant.
-
-Good: "Subscription paused. We'll skip your next delivery and resume automatically."
-Not: "Success!"
-
-#### Loading
-
-- Under 1 second: no loading copy.
-- 1-3 seconds: spinner, no copy.
-- 3+ seconds: describe what's happening.
+If any rule in `copy/` conflicts with the source docs above, the source docs win. Flag the conflict so the skill can be updated.
 
 ---
 
-## Regulatory and compliance language
+## When to read which file
 
-Consumer health products carry specific constraints. Read carefully.
-
-### Structure/function vs disease claims
-
-Seed products make structure/function claims only. Never disease claims.
-
-Allowed: "Supports digestive health."
-Not allowed: "Cures IBS." "Treats SIBO."
-
-### Required disclaimers
-
-For any structure/function claim, the FDA disclaimer must be present on the surface. Check with legal before shipping new claim language.
-
-"These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
-
-### Strain-specific claims
-
-Only make a claim if the strain in the product has published human clinical data supporting it. Link to the citation.
-
----
-
-## Subscription and cancellation language
-
-Member experience surfaces require extra care. See `patterns.md` for flow rules.
-
-### Pause
-
-- Frame pause as a first-class option, not a retention tactic.
-- Default pause durations: 2 weeks, 1 month, 2 months.
-- Confirm resume date explicitly.
-
-### Cancel
-
-- Never hide the cancel button.
-- Never add friction that does not also add value (education, alternative plans).
-- Confirmation copy should be neutral, not pleading.
-
-Good: "Your subscription is canceled. You'll keep access through [date]."
-Not: "We're sad to see you go. Are you sure you want to leave?"
-
-### Win-back
-
-- Honest. If the user canceled for a reason, address it.
-- One email per cancellation event. No campaigns.
-
----
-
-## Educational content patterns
-
-### Science explanations
-
-- Lead with the outcome, then the mechanism.
-- Define terms on first use.
-- Link to the primary source, not a secondary article.
-
-Pattern:
-> [Outcome the user cares about]. [How it happens, in one sentence]. [Specific evidence, citation]. [What this means for you].
-
-### Myth-busting
-
-- Name the myth accurately before correcting it.
-- Use neutral language, not mockery.
-- Close with what to do, not just what not to believe.
-
----
-
-## Microcopy library
-
-Copy strings to reuse verbatim. Do not paraphrase these.
-
-| Context | Copy |
+| File | Use when |
 |---|---|
-| Generic error fallback | "Something went wrong. Please try again or contact support." |
-| Network error | "We can't reach our servers. Check your connection and try again." |
-| Subscription paused confirm | "Subscription paused. Resumes on [date]." |
-| Subscription canceled confirm | "Subscription canceled. You'll keep access through [date]." |
-| Order shipped | "Your order shipped. Track it anytime from your account." |
-| Delivery arriving today | "Arriving today by [time window]." |
-| Required field marker legend | "Required" |
-| Cancel button (destructive flow) | "Cancel subscription" |
-| Pause button | "Pause subscription" |
-| Resume button | "Resume subscription" |
+| `copy/tov.md` | Any time you are generating user-facing copy. Covers the three pillars (Grounding, Illuminating, Intriguing), the formulas, and how voice shifts by funnel stage. |
+| `copy/mechanics.md` | Grammar, punctuation, citations, capitalization, emojis, numbers. This is the style-guide layer. |
+| `copy/vocabulary.md` | Word choice, defined terms, product naming, trademark handling, Elevated vs. Simple scientific language, do/don't phrasing. |
+| `copy/surfaces.md` | Per-surface rules (homepage, PLP, PDP, cart, checkout, promos, email, ads, social, TV). Length, structure, performance benchmarks. |
+| `copy/microcopy.md` | CTAs, form labels, errors, empty states, loading, subscription controls, toasts, tooltips. Verbatim strings live here. |
+| `copy/compliance.md` | Structure/function vs. disease claims, FDA disclaimer, strain-specific claim rules, promo T&Cs. |
+| `copy/examples.md` | Approved copy examples by funnel stage and pillar. Use as direct lift or adapt. |
 
 ---
 
-## Voice rules for agents
+## Quickstart: minimum reads per task
 
-When generating copy:
-1. Check this file first. If a pattern exists, use it.
-2. If a microcopy string exists for the context, use it verbatim.
-3. If generating new copy, read the pillars and check against "Never."
-4. Flag any health or efficacy claim for legal review in your response.
-5. Default to the shortest copy that carries meaning.
+### Writing a headline or subhead
+`copy/tov.md` → `copy/surfaces.md` → `copy/examples.md`
+
+### Writing a CTA, error, or confirmation
+`copy/microcopy.md` (if a verbatim string exists, use it) → `copy/mechanics.md` for casing.
+
+### Writing a health or efficacy claim
+`copy/compliance.md` → `copy/vocabulary.md` → `copy/tov.md` for tone.
+
+### Picking between two phrasings
+`copy/vocabulary.md` (Elevated vs. Simple, do/don't tables).
+
+### Generating a full page or flow
+Read all seven files in order, then `references/examples.md` for composition snippets.
+
+---
+
+## Non-negotiable voice rules
+
+These are the rules that break things when they're skipped. Pulled from the deeper files for quick reference.
+
+1. **Three pillars, always.** Every piece of copy carries Grounding, Illuminating, and Intriguing. Missing one creates predictable failure modes (see `copy/tov.md`).
+2. **Em dashes are Seed.** No spaces on either side. Used instead of semicolons. (`copy/mechanics.md`)
+3. **One exclamation per surface max.** Default to periods. Exclamations are rare, intentional, and earned. (`copy/mechanics.md`)
+4. **Oxford commas, always.** (`copy/mechanics.md`)
+5. **Short sentences. Active voice. You address the reader.** (`copy/tov.md`)
+6. **Lead with the outcome, then the mechanism.** (`copy/tov.md`)
+7. **Structure/function claims only. Never disease claims.** FDA disclaimer on any surface with a claim. (`copy/compliance.md`)
+8. **Control as a feature.** Pause, skip, cancel are first-class, not hidden. (`copy/microcopy.md`)
+9. **If a microcopy string exists, use it verbatim.** (`copy/microcopy.md`)
+10. **Citations after punctuation. APA style.** (`copy/mechanics.md`)
+
+---
+
+## Voice pillar checklist (before you ship)
+
+Every headline, subhead, module, or email should pass these three checks:
+- **Grounding:** Is this specific and defensible? Would a scientist nod?
+- **Illuminating:** Would a smart person new to Seed leave understanding more?
+- **Intriguing:** Is there a reason to read the next line?
+
+If any answer is "no," rewrite. If you cannot pass all three, flag the gap in your response.
+
+---
+
+## When you are generating copy, in this order
+
+1. Check `copy/microcopy.md` for a verbatim string that fits.
+2. Check `copy/examples.md` for an approved pattern.
+3. Check `copy/surfaces.md` for per-surface length and structure.
+4. Check `copy/vocabulary.md` for the right register (Elevated vs. Simple).
+5. Apply `copy/mechanics.md` for punctuation and formatting.
+6. Apply `copy/compliance.md` if the copy makes a claim.
+7. Run the three-pillar check from `copy/tov.md`.
+8. In your response, flag any claim for legal review and any gap you filled with a best-guess.
