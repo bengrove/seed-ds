@@ -1,0 +1,14 @@
+{
+  "name": "seed-ds",
+  "version": "0.1.0",
+  "description": "Seed design system skill for coding agents. Tokens, components, voice, and patterns as a single source of truth.",
+  "author": "bengrove",
+  "skills": [
+    {
+      "name": "seed",
+      "path": "skills/seed/SKILL.md"
+    }
+  ],
+  "keywords": ["design-system", "seed", "tokens", "components", "voice"],
+  "license": "UNLICENSED"
+}
