@@ -113,7 +113,15 @@ git clone https://github.com/bengrove/seed-ds.git .seed-skill
 
 ## Use with Claude Design
 
-During Claude Design onboarding, point it at this repo plus the component library and Figma files. Claude Design reads this skill and applies Seed tokens, voice, and patterns automatically to every project.
+During Claude Design onboarding, point it at:
+- This repo (tokens, components, voice, patterns, `pages/`, `products/`)
+- The component library repo
+- Figma files (design system + key components)
+- TOV / copy style guide (DOCX upload)
+
+The `pages/` captures are particularly useful — they give Claude Design real seed.com examples of how templates compose, not just abstract rules.
+
+See [docs/claude-design-setup.md](docs/claude-design-setup.md) for the full rollout playbook (admin access, usage budgeting, export workflows, Figma workarounds).
 
 ## Current state
 
