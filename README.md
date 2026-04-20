@@ -31,7 +31,32 @@ seed-ds/
 │           ├── motion.md        Easing, durations, overlay rules
 │           ├── assets.md        Bynder CDN, naming, imagery rules
 │           ├── lessons.md       Gotchas and decisions from real builds
-│           └── examples.md      Copy-ready composition snippets (React/HTML with tokens)
+│           ├── examples.md      Copy-ready composition snippets (React/HTML with tokens)
+│           ├── pages/           Raw captures of live seed.com page templates
+│           │   ├── _template/   Starter frontmatter + structure for new captures
+│           │   ├── homepage/    index.md + desktop/mobile .png + .h2d
+│           │   ├── pdp/         (Daily Synbiotic as canonical example)
+│           │   ├── plp/
+│           │   ├── cart/
+│           │   ├── checkout/
+│           │   ├── account/
+│           │   ├── subscription/
+│           │   ├── reference/   DS scientific reference page
+│           │   ├── cultured-article/
+│           │   ├── approach/    science page
+│           │   ├── seed-labs/   research page
+│           │   ├── faq/         help.seed.com (third-party skin — flagged in frontmatter)
+│           │   └── flows/
+│           │       ├── biotics-quiz/    pre-purchase funnel
+│           │       └── web-onboarding/
+│           └── products/        Per-product visual/content identity within templates
+│               ├── _template.md
+│               ├── daily-synbiotic.md   (DS-01)
+│               ├── dm-02.md             Daily Multivitamin
+│               ├── am-02.md             Focus + Energy
+│               ├── pm-02.md             Sleep + Restore
+│               ├── pds-08.md            Pediatric Synbiotic
+│               └── vs-01.md             Vaginal Synbiotic
 ├── README.md                    You are here
 └── LICENSE
 ```
@@ -100,12 +125,20 @@ During Claude Design onboarding, point it at this repo plus the component librar
 
 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows.
 
+**Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Together they let agents ground output in real seed.com UX instead of abstract guidelines.
+
 ## Contributing
 
 When you add or change a token, component, voice rule, or pattern:
 1. Update the relevant `references/*.md` file
 2. Add a gotcha to `lessons.md` if the change came from a real build
 3. Keep this repo in sync with the tokens repo and Figma
+
+When adding a new page or product capture:
+1. Copy `references/pages/_template/` (or `products/_template.md`) as a starting point
+2. Capture desktop (1440px) + mobile (390px) as both `.png` and `.h2d` (html.to.design)
+3. Fill in frontmatter: `captured:` date, `source:` URL, compress screenshots before commit
+4. Link related templates/products in the `## Related` section
 
 ## License
 
