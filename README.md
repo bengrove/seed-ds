@@ -9,7 +9,7 @@ This repo is the source of truth for agents. It is **not** a replacement for Fig
 ```
 seed-ds/
 ├── .claude-plugin/
-│   └── plugin.json              Plugin manifest (install via /plugin marketplace add)
+│   └── plugin.json              Plugin manifest
 ├── skills/
 │   └── seed/
 │       ├── SKILL.md             Entry point, agent activation rules
@@ -72,7 +72,7 @@ cd path/to/your/project
 claude
 ```
 
-**2. Add the marketplace and install the plugin**
+**2. Install the plugin**
 
 Inside the Claude Code session, run:
 
