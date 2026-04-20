@@ -125,15 +125,17 @@ See [docs/claude-design-setup.md](docs/claude-design-setup.md) for the full roll
 
 ## Current state
 
-**Components:** in progress. Finishing in Figma. See `references/components.md` for current inventory and status flags.
+Legend: 🟢 complete / stable · 🟡 in progress · 🔴 not started
 
-**Tokens:** stable. Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
+🟡 **Components:** Finishing in Figma. See `references/components.md` for current inventory and status flags.
 
-**Voice:** documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
+🟢 **Tokens:** Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
 
-**Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows.
+🟢 **Voice:** Documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
 
-**Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Together they let agents ground output in real seed.com UX instead of abstract guidelines.
+🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
+
+🟡 **Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 2/14 page templates captured, 0/6 products populated.
 
 ## Contributing
 
