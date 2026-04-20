@@ -127,7 +127,7 @@ See [docs/claude-design-setup.md](docs/claude-design-setup.md) for the full roll
 
 **Components:** in progress. Finishing in Figma. See `references/components.md` for current inventory and status flags.
 
-**Tokens:** stable. Source of truth is the tokens repo (Style Dictionary / Tokens Studio). This skill mirrors them for agent context.
+**Tokens:** stable. Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
 
 **Voice:** documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
 

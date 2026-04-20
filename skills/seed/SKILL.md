@@ -63,7 +63,7 @@ This skill defines visual and copy values. You emit code in the target stack. Ne
 
 ## Token source of truth
 
-Tokens in `references/tokens.md` mirror the tokens repo (Style Dictionary / Tokens Studio). If you encounter a conflict, the tokens repo wins. Flag the conflict in your response so the skill can be updated.
+Tokens in `references/tokens.md` are auto-generated from [seed-health/tokens](https://github.com/seed-health/tokens). Regenerate with `node scripts/sync-tokens.mjs`. If you encounter a conflict between this file and the tokens repo, the tokens repo wins — flag it in your response and rerun the sync.
 
 ## Figma source of truth
 
