@@ -61,6 +61,18 @@ seed-ds/
 └── LICENSE
 ```
 
+## Current state
+
+🟡 **Components:** Finishing in Figma. See `references/components.md` for current inventory and status flags.
+
+🟢 **Tokens:** Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
+
+🟢 **Voice:** Documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
+
+🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
+
+🟡 **Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 2/14 page templates captured, 0/6 products populated.
+
 ## Install as a Claude Code skill
 
 Prerequisite: [Claude Code CLI](https://docs.claude.com/en/docs/claude-code) installed and authenticated (`claude` on your PATH).
@@ -122,20 +134,6 @@ During Claude Design onboarding, point it at:
 The `pages/` captures are particularly useful — they give Claude Design real seed.com examples of how templates compose, not just abstract rules.
 
 See [docs/claude-design-setup.md](docs/claude-design-setup.md) for the full rollout playbook (admin access, usage budgeting, export workflows, Figma workarounds).
-
-## Current state
-
-Legend: 🟢 complete / stable · 🟡 in progress · 🔴 not started
-
-🟡 **Components:** Finishing in Figma. See `references/components.md` for current inventory and status flags.
-
-🟢 **Tokens:** Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
-
-🟢 **Voice:** Documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
-
-🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
-
-🟡 **Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 2/14 page templates captured, 0/6 products populated.
 
 ## Contributing
 
