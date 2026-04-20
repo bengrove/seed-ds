@@ -13,10 +13,10 @@ surfaces:
     screenshot: ./mobile.png
     figma: ./mobile.h2d
 notes: |
-  Canonical PDP capture. DS-01 exercises the full PDP module library (hero,
-  ViaCap, benefit timeline, compare table, welcome kit, subscription tiers,
-  testing callouts). Promo code "TARGET20" is live at capture time — typical
-  promo-on-PDP treatment, not permanent copy.
+  Canonical PDP capture (steady-state — no live promo). DS-01 exercises the
+  full PDP module library: hero, ViaCap, benefit timeline, compare table,
+  welcome kit, subscription tiers, testing callouts. "Bestseller" badge is
+  part of default product treatment.
 ---
 
 # PDP (Product Detail Page)
@@ -25,8 +25,8 @@ notes: |
 Deep-dive product page for prospects evaluating a specific SKU. Converts browsers to subscribers by pairing emotional proof (bloating relief, skin, immunity) with scientific proof (strain counts, clinical validation, testing rigor). Primary CTA is "Start Now" into a subscription flow.
 
 ## Structure
-1. **Hero** — product name (DS-01®), one-line value prop, promo code banner, strikethrough pricing ($39.99 / ~~$49.99~~), "30-day supply delivered monthly" reassurance, "Start Now" CTA, risk/shipping reassurance line
-2. **Bundle + Save 25%** — cross-sell (AM-02™ Energy + Focus) with inline upsell card
+1. **Hero** — product name (DS-01®), one-line value prop, full price ($49.99), "Bestseller" badge, "30-day supply delivered monthly" reassurance, "Start Now" CTA, risk/shipping reassurance line
+2. **Bundle + Save 25%** — cross-sell (DM-02™ Daily Multivitamin) with inline upsell card
 3. **ViaCap® technology module** — capsule-in-capsule explainer (shared pattern with homepage; outer/inner capsule breakdown)
 4. **Benefit timeline** — "The DS-01® difference: Benefits that build over time"; horizontal/tabbed 4-stage timeline (7 days → 2 weeks → 4 weeks → 3 months) each with 3 sub-benefits and compliance asterisks/daggers
 5. **How to Use** — single-line usage instruction
@@ -39,7 +39,7 @@ Deep-dive product page for prospects evaluating a specific SKU. Converts browser
 12. **Bottom brand repeat** — "DS-01® Daily Synbiotic"
 
 ## Key patterns
-- **Pricing treatment:** Strikethrough original + discounted display, paired with a promo code badge. Matches bundle treatment from homepage/PLP.
+- **Hero pricing (steady state):** Single price, no strikethrough. `Bestseller` badge near the product name. When a promo is live, hero gets a promo code badge and strikethrough original price — that's the variant state, not the default.
 - **Benefit timeline:** Time-based progression (7d/2w/4w/3m) is a PDP-specific pattern. Each stage is a stacked list with 3 sub-benefits. Compliance marks (`*`, `**`, `†`, `††`) distinguish claim strength.
 - **Attribute badge grid:** 12-item chip grid — compact, symmetric, reads as a "what's in / not in" scannable block. Likely wraps from 4-col desktop → 3-col mobile → 2-col narrow.
 - **Comparison table:** 2-column versus format. Cells have check marks (DS-01) or prose (competitors, typically hedged: "10 or less strains", "Rare"). Document as `comparison-table` component.
@@ -49,7 +49,8 @@ Deep-dive product page for prospects evaluating a specific SKU. Converts browser
 - **Responsive:** Benefit timeline likely switches from horizontal stepper (desktop) to vertical stack (mobile). Comparison table often transforms to stacked cards on narrow widths.
 
 ## Component usage
-- Hero with promo badge + strikethrough pricing + primary CTA + reassurance line
+- Hero with Bestseller badge + full pricing + primary CTA + reassurance line (steady state)
+- Hero promo variant (when promo live): promo code badge + strikethrough original price
 - Bundle upsell card (inline cross-sell)
 - ViaCap explainer module (shared with homepage)
 - Benefit timeline / stepper (PDP-specific)
@@ -76,9 +77,7 @@ Cross-ref: `components.md`, `patterns.md` (PDP entry), `copy/surfaces.md` (PDP r
 
 Daily probiotic + prebiotic clinically validated to relieve bloating, gas, and irregularity. Powered by 24 strains that promote whole body health.*
 
-**20% off with TARGET20**
-
-$39.99 ~~$49.99~~
+$49.99 · **Bestseller**
 
 30-day supply delivered monthly.
 Pause or cancel anytime.
@@ -91,7 +90,7 @@ Pause or cancel anytime.
 
 **Bundle + Save 25%**
 
-Add AM-02™ Energy + Focus to your routine and save on your first order.
+Add DM-02™ Daily Multivitamin to your routine and save on your first order.
 
 ---
 
@@ -184,6 +183,6 @@ DS-01® is screened as a full formula for allergens, contaminants, and pesticide
 ## Related
 - Page template: `pages/pdp/`
 - Flagship product: [products/daily-synbiotic.md](../../products/daily-synbiotic.md) *(not yet created)*
-- Cross-sold here: AM-02™ (Focus + Energy)
+- Cross-sold here: DM-02™ (Daily Multivitamin) — default cross-sell on DS-01 PDP
 - Shared modules: ViaCap explainer (also on homepage), attribute badge grid, testing callout
 - Linked templates: `plp`, `reference` (DS scientific reference), `cart`, `flows/biotics-quiz` (for hesitant prospects)
