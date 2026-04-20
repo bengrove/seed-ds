@@ -63,11 +63,11 @@ seed-ds/
 
 ## Current state
 
-🟡 **Components:** Finishing in Figma. See `references/components.md` for current inventory and status flags.
-
 🟢 **Tokens:** Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
 
 🟢 **Voice:** Documented in `references/copy/` from Brand TOV 2025 (Figma deck), Seed Copy Style Guide 2026, and Seed UX and Microcopy Best Practices. Seven focused files cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, and examples.
+
+🟡 **Components:** Finishing in Figma. See `references/components.md` for current inventory and status flags.
 
 🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
 
