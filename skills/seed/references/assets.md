@@ -47,6 +47,49 @@ Bynder assets follow a naming pattern. When searching, look for:
 - `member-[context]` — member experience photography
 - `brand-[asset]-[variant]` — logos, marks, brand elements
 
+## Media Container component
+
+All images and video on Seed surfaces render inside the **Media Container** component (Figma library). Use this component instead of bare `<img>` / `<video>` tags — it enforces aspect ratio, fallback, and loading behavior.
+
+### Aspect ratio variants
+
+The component exposes six supported ratios. Pick the ratio that matches the crop of the asset, not the layout slot.
+
+| Ratio | Typical use |
+|---|---|
+| `3:4` | Portrait product shots, portrait lifestyle, editorial hero |
+| `1:1` | Square grid tiles, social-style modules, avatar-adjacent |
+| `5:4` | Near-square editorial, tighter product compositions |
+| `4:3` | Classic photo, science diagrams, member stories |
+| `3:2` | Landscape product, landscape lifestyle |
+| `16:9` | Video thumbnails, cinematic hero, full-bleed landscape |
+
+Do not author custom aspect ratios. If an asset doesn't fit one of the six, re-crop the source rather than adding a new variant.
+
+### Container states
+
+Every ratio has two states:
+
+- **Image** — the asset is loaded and displayed. Preserves the ratio via CSS (`aspect-ratio`), not fixed height.
+- **Fallback** — the asset is missing, loading, or failed. Shows a token-styled placeholder (solid fill using a neutral token) that preserves layout and prevents CLS.
+
+When emitting code, always render the Fallback state behind the Image so layout is stable before the asset resolves. Do not collapse the container when an image is missing.
+
+### Choosing a ratio per surface
+
+| Surface | Default ratio |
+|---|---|
+| PDP hero (product) | `3:4` portrait or `1:1` square |
+| PLP tile | `1:1` |
+| Homepage module (editorial) | `4:3` or `16:9` |
+| Benefit card (timeline, welcome kit) | `1:1` or `4:3` |
+| Video (Microbiome 101, SeedLabs) | `16:9` |
+| Member-facing account avatar | `1:1` |
+
+See `pages/*/` for real-world ratio usage across templates.
+
+---
+
 ## Imagery rules
 
 ### Product photography

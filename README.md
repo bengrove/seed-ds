@@ -25,11 +25,10 @@ seed-ds/
 │           │   ├── microcopy.md CTAs, errors, empty states, subscription controls (verbatim strings)
 │           │   ├── compliance.md Structure/function vs. disease, FDA disclaimer, strain claims
 │           │   └── examples.md  Approved copy by funnel stage and pillar
-│           ├── patterns.md      Landers, PDP, member experience flows
-│           ├── theming.md       Light/dark, stack translation (shadcn, Tailwind)
+│           ├── patterns.md      Modules, landers, PDP template, member experience flows
 │           ├── responsive.md    Breakpoints, grid, container rules
 │           ├── motion.md        Easing, durations, overlay rules
-│           ├── assets.md        Bynder CDN, naming, imagery rules
+│           ├── assets.md        Bynder CDN, imagery rules, Media Container ratios
 │           ├── lessons.md       Gotchas and decisions from real builds
 │           ├── examples.md      Copy-ready composition snippets (React/HTML with tokens)
 │           ├── pages/           Raw captures of live seed.com page templates

@@ -79,22 +79,13 @@ Keep each lesson scannable. One paragraph max.
 
 ---
 
-## Tokens and theming gotchas
+## Tokens gotchas
 
-### Token sync is manual
+### Token sync drifts from the repo
 
 **Context:** Updated a color in the tokens repo.
 **What went wrong:** `tokens.md` in this skill drifted from the actual repo.
-**Fix:** Sync protocol: after any tokens repo change, update `tokens.md` and bump the "Last sync" line. Consider a CI job that fails if they drift.
-**Date:** TBD
-
----
-
-### Tailwind and shadcn don't play well layered
-
-**Context:** Tried to use `.seed-*` classes on top of shadcn components.
-**What went wrong:** Specificity conflicts, inconsistent results.
-**Fix:** Pick one approach. For shadcn projects, override CSS variables only. For Tailwind without shadcn, use tokens in `@theme`. See `theming.md`.
+**Fix:** Run `node scripts/sync-tokens.mjs` to regenerate `tokens.md` from the latest commit of seed-health/tokens. The sync region between `<!-- SYNC:BEGIN -->` and `<!-- SYNC:END -->` is overwritten each run.
 **Date:** TBD
 
 ---

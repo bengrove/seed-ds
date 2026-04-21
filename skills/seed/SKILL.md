@@ -20,7 +20,7 @@ On activation, read in this order:
 1. This file (you are here)
 2. `references/tokens.md` for visual primitives
 3. `references/voice.md` as the index to copy rules (points you to `copy/*.md`)
-4. Relevant surface-specific reference: `patterns.md`, `components.md`, or `theming.md`
+4. Relevant surface-specific reference: `patterns.md` or `components.md`
 5. `references/lessons.md` before shipping, to avoid known gotchas
 
 ### Copy-specific read order
@@ -59,7 +59,7 @@ If the task mentions any of these, apply the copy read order:
 
 ## Stack translation
 
-This skill defines visual and copy values. You emit code in the target stack. Never hardcode hex values or copy strings if a token or voice rule exists. See `references/theming.md` for per-stack translation (Tailwind, shadcn, plain HTML, React).
+This skill defines visual and copy values. You emit code in the target stack. Never hardcode hex values or copy strings if a token or voice rule exists. Tokens are consumed directly from `@seed-health/tokens` (see `references/tokens.md` for import patterns).
 
 ## Token source of truth
 
