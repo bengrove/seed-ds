@@ -14,7 +14,7 @@ seed-ds/
 │   └── seed/
 │       ├── SKILL.md               Ingress point, agent activation rules
 │       └── references/
-│           ├── tokens.md          Design tokend with usage rules
+│           ├── tokens.md          Design tokens with usage rules
 │           ├── components.md      Component inventory, anatomy, states
 │           ├── voice.md           Index pointing to copy/*.md
 │           ├── copy/
@@ -25,7 +25,7 @@ seed-ds/
 │           │   ├── microcopy.md   CTAs, errors, empty states, subscription controls (verbatim strings)
 │           │   ├── compliance.md  Structure/function vs. disease, FDA disclaimer, strain claims
 │           │   └── examples.md    Approved copy by funnel stage and pillar
-│           ├── patterns.md        Modules, page templates, core fows
+│           ├── patterns.md        Modules, page templates, core flows
 │           ├── responsive.md      Breakpoints, grid, container rules
 │           ├── motion.md          Easing, durations, overlay rules
 │           ├── assets.md          Bynder CDN integration, imagery rules, media container ratios
@@ -44,7 +44,7 @@ seed-ds/
 │           │   ├── cultured/      Microbiome 101 article as canonical example
 │           │   ├── approach/      Science page as canonical example
 │           │   ├── seed-labs/     Research page canonical example
-│           │   ├── faq/           help.seed.com (gorias skin - flagged in frontmatter)
+│           │   ├── faq/           help.seed.com (gorgias skin - flagged in frontmatter)
 │           │   └── flows/
 │           │       ├── biotics-quiz/    pre-purchase funnel
 │           │       └── web-onboarding/  DS-01 web onboarding as canonical example
@@ -70,7 +70,7 @@ seed-ds/
 
 🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
 
-🟡 **Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 2/14 page templates captured, 0/6 products populated.
+🟡 **Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 3/14 page templates captured, 0/6 products populated.
 
 ## Install as a Claude Code skill
 
