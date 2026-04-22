@@ -10,12 +10,12 @@ Every section records: what was decided, what was rejected, why, and what would 
 
 **Decided:** seed-ds is primarily a Claude Code skill consumed by AI agents. Human readability is a secondary benefit, not the primary goal.
 
-**Rejected:** A Notion wiki, a Storybook docs site, or a static site like Backstage/Zeroheight as the v1 source of truth.
+**Rejected:** A Storybook docs site or a static site as the v1 source of truth.
 
 **Why:** Three reasons.
 1. Agents are the most frequent consumer of design system docs now. Landers, prototypes, Claude Design projects, Claude Code sessions all need machine-readable rules.
 2. Human docs get stale because they're optimized for first-time reading, not for reference lookups. Agent-first docs get tested on every prompt.
-3. Markdown files are portable. Notion and Zeroheight lock you in. A flat repo of .md files works with any agent (Claude, Cursor, Windsurf), any human editor, and any future tool.
+3. Markdown files are portable. A flat repo of .md files works with any agent/IDE (Claude, Cursor, VS Code), any human editor, and any future tool.
 
 **Would reconsider if:** The skill becomes so large that agent context limits start dropping sections. At that point, split into a lookup index with deep-dive sub-skills.
 
@@ -33,9 +33,9 @@ Every section records: what was decided, what was rejected, why, and what would 
 
 ---
 
-### 03: Structure inspired by Atlas (pacifio/ui), customized for Seed
+### 03: File tree structure inspired by Atlas (pacifio/ui), translated for Seed
 
-**Decided:** Folder structure mirrors Atlas: `.claude-plugin/` for install, `skills/seed/` for the skill content, `references/` for the reference files.
+**Decided:** Folder structure is based off of Atlas: `.claude-plugin/` for install, `skills/seed/` for the skill content, `references/` for the reference files.
 
 **Rejected:** Flat structure (all .md files in root), deeply nested structure (subfolders per component category), or a src/ + dist/ build split.
 
