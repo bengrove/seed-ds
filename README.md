@@ -70,7 +70,7 @@ seed-ds/
 
 🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
 
-🟡 **Live references:** `references/pages/` captures raw site templates (content markdown + desktop/mobile screenshots). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 3/14 page templates captured, 0/6 products populated.
+🟡 **Live references:** `references/pages/` captures raw site templates (content markdown + desktop/mobile screenshots). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 7/14 page templates captured, 0/6 products populated.
 
 ## Setup
 
