@@ -30,7 +30,7 @@ seed-ds/
 │           ├── motion.md          Easing, durations, overlay rules
 │           ├── assets.md          Bynder CDN integration, imagery rules, media container ratios
 │           ├── lessons.md         Gotchas and decisions from prod
-│           ├── examples.md        Copy-ready composition snippets (React/HTML with tokens)
+│           ├── examples.md        Code snippets (placeholder — regenerated post-refactor)
 │           ├── pages/             Raw captures of core live seed.com pages
 │           │   ├── _template/     Starter frontmatter + structure for new captures
 │           │   ├── homepage/      index.md + desktop/mobile .png + .h2d

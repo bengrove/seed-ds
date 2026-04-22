@@ -331,7 +331,7 @@ Things still unresolved as of the current commit.
 - **Cross-project voice variation.** Does marketing voice differ enough from product voice to warrant separate files? Currently one file.
 - **Figma Code Connect integration.** Should seed-ds contain Code Connect mappings, or do those live in the Storybook repo? Currently assumed to live with Storybook.
 - **Multi-brand future.** If Seed acquires or launches a sub-brand, does it get its own skill or share this one with a theme variable? Deferred until the situation exists.
-- **Regenerate `components.md` from source.** Currently DRAFT — speculative scaffolding with fabricated token references. Once the dev refactor settles, build a script (mirror of `scripts/sync-tokens.mjs`) that reads `my-seed-live/components` + Storybook and produces a real inventory with verified status flags.
+- **Regenerate `components.md` and `examples.md` from source.** Both are currently placeholders — the original files were speculative scaffolding with fabricated token references and invented component APIs. Once the dev refactor settles, build a script (mirror of `scripts/sync-tokens.mjs`) that reads `my-seed-live/components` + Storybook and produces: (1) a real component inventory with verified status flags for `components.md`, and (2) real composition snippets with verified token references for `examples.md`.
 
 Resolve these with decision records as answers become clear.
 
