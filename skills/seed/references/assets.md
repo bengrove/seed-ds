@@ -1,51 +1,106 @@
 # Assets
 
-How to use imagery, video, and creative assets from Bynder. This is the Seed-specific companion to tokens and components.
+How to handle imagery, video, and creative assets at Seed. Covers three delivery systems (Bynder, Cloudinary, Shopify CDN), the Media Container component, imagery rules, and asset workflow.
 
-## Source of truth
+## Asset delivery landscape
 
-All approved creative assets live in [Bynder](https://seed.getbynder.com). Do not use assets from other sources without approval. Do not generate AI imagery as final production content; prototypes only, flagged explicitly.
+Seed is headless on Shopify. Three systems, each with a distinct job:
 
-## Bynder CDN
+1. **Bynder (DAM)** — source of truth for approved brand, lifestyle, and science assets. Storage, approvals, master files. **Not** a production web delivery layer.
+2. **Cloudinary (headless CDN)** — serves and optimizes assets for the headless storefront (homepage, PLP, cultured articles, SeedLabs, approach, and all lifestyle/editorial imagery). Handles format negotiation (webp/avif), responsive resizing, on-the-fly transformations.
+3. **Shopify CDN** — serves product imagery on PDPs and all checkout assets. Product photos live here natively because Shopify hosts the product catalog.
 
-Bynder serves optimized variants via CDN URLs. Pattern:
+**Picking the right CDN:** *which surface is this?* PDP or checkout → Shopify. Everything else on the headless site → Cloudinary. Brand, lifestyle, and science source files live in Bynder regardless of where they're delivered.
 
-```
-https://seed.getbynder.com/m/[asset-id]/[variant]
-```
+---
 
-Common variants:
-- `original` — source file, avoid for web
-- `webimage` — 1920px wide, web-optimized
-- `mini` — 200px wide, thumbnails
-- `thul` — 120px wide, avatars and icons
+## Bynder (DAM)
 
-For responsive images, request multiple variants via `srcset`:
+Bynder is where approved assets live. Brand team and designers use it for storage, approvals, and internal review. Before an asset ships to the web, it's pushed into Cloudinary (for headless surfaces) or uploaded to Shopify (for product imagery).
 
-```html
-<img
-  src="https://seed.getbynder.com/m/[id]/webimage"
-  srcset="
-    https://seed.getbynder.com/m/[id]/mini 200w,
-    https://seed.getbynder.com/m/[id]/thul 120w,
-    https://seed.getbynder.com/m/[id]/webimage 1920w
-  "
-  sizes="(min-width: 768px) 50vw, 100vw"
-  alt="[descriptive alt text]"
-  loading="lazy"
-  decoding="async"
-/>
-```
+- URL: [seed.getbynder.com](https://seed.getbynder.com)
+- **Do not hotlink Bynder URLs in production pages.** Use Cloudinary or Shopify CDN instead.
+- Do not use assets from other sources without approval.
+- Do not generate AI imagery as final production content; prototypes only, flagged explicitly.
 
-## Naming conventions
+### Bynder naming conventions
 
-Bynder assets follow a naming pattern. When searching, look for:
+When searching Bynder, look for:
 
 - `product-[sku]-[view]` — product photography
 - `lifestyle-[context]-[variant]` — lifestyle imagery
 - `science-[type]-[subject]` — diagrams, lab imagery, clinical visuals
 - `member-[context]` — member experience photography
 - `brand-[asset]-[variant]` — logos, marks, brand elements
+
+---
+
+## Cloudinary (headless CDN)
+
+**Cloud name:** `dljz0lko8`. URLs are open (unsigned) — no signature segment.
+
+**URL pattern:**
+
+```
+https://res.cloudinary.com/dljz0lko8/image/upload/{transformations}/{folder-path}/{filename}.{ext}
+```
+
+**Standard transformations:** always include `f_auto,q_auto` (auto format for webp/avif support, auto quality). Add `w_{width}` for responsive variants.
+
+Example — homepage hero, mobile variant:
+
+```
+https://res.cloudinary.com/dljz0lko8/image/upload/f_auto,q_auto/library/hero/science_and_tech_mobile.png
+```
+
+### Responsive srcset pattern
+
+```html
+<img
+  src="https://res.cloudinary.com/dljz0lko8/image/upload/f_auto,q_auto,w_1440/library/hero/science_and_tech.png"
+  srcset="
+    https://res.cloudinary.com/dljz0lko8/image/upload/f_auto,q_auto,w_390/library/hero/science_and_tech_mobile.png 390w,
+    https://res.cloudinary.com/dljz0lko8/image/upload/f_auto,q_auto,w_768/library/hero/science_and_tech.png 768w,
+    https://res.cloudinary.com/dljz0lko8/image/upload/f_auto,q_auto,w_1440/library/hero/science_and_tech.png 1440w
+  "
+  sizes="(min-width: 768px) 100vw, 100vw"
+  alt="..."
+  loading="lazy"
+  decoding="async"
+/>
+```
+
+### Folder convention
+
+Observed pattern (document more as URLs surface during page captures):
+
+- `library/` — common root for web-delivered assets
+- `library/{category}/` — grouped by purpose (`hero/`, etc.)
+- Filenames: underscores, lowercase, context suffix where needed (`_mobile`, `_desktop`)
+
+---
+
+## Shopify CDN
+
+Shopify CDN serves PDP product imagery and all checkout assets natively, because Shopify hosts the product catalog and checkout surface.
+
+**URL pattern:**
+
+```
+https://cdn.shopify.com/s/files/1/{store-id}/products/{filename}.{ext}
+```
+
+Shopify handles most optimization automatically — format conversion, responsive variants via query params (`?width=1440`), lazy loading when using the storefront `<Image>` component.
+
+**Use Shopify CDN for:**
+- PDP hero gallery (product shots, detail views, scale references)
+- Checkout product thumbnails
+- Any asset tied to a Shopify product SKU
+
+**Do not use Shopify CDN for:**
+- Editorial imagery (homepage hero, cultured articles, SeedLabs, approach) — use Cloudinary
+- Brand marks, logos — use Cloudinary
+- Lifestyle imagery not tied to a product — use Cloudinary
 
 ## Media Container component
 
@@ -77,14 +132,15 @@ When emitting code, always render the Fallback state behind the Image so layout 
 
 ### Choosing a ratio per surface
 
-| Surface | Default ratio |
-|---|---|
-| PDP hero (product) | `3:4` portrait or `1:1` square |
-| PLP tile | `1:1` |
-| Homepage module (editorial) | `4:3` or `16:9` |
-| Benefit card (timeline, welcome kit) | `1:1` or `4:3` |
-| Video (Microbiome 101, SeedLabs) | `16:9` |
-| Member-facing account avatar | `1:1` |
+| Surface | Default ratio | CDN |
+|---|---|---|
+| PDP hero (product) | `3:4` portrait or `1:1` square | Shopify |
+| PLP tile | `1:1` | Shopify (product) / Cloudinary (editorial) |
+| Homepage module (editorial) | `4:3` or `16:9` | Cloudinary |
+| Benefit card (timeline, welcome kit) | `1:1` or `4:3` | Cloudinary |
+| Video (Microbiome 101, SeedLabs) | `16:9` | Cloudinary / Mux |
+| Checkout thumbnail | `1:1` | Shopify |
+| Member-facing account avatar | `1:1` | Cloudinary |
 
 See `pages/*/` for real-world ratio usage across templates.
 
