@@ -1,5 +1,15 @@
 # Components
 
+> ⚠️ **DRAFT — do not trust token references or status flags in this file.**
+>
+> This inventory was scaffolded speculatively in the initial commit and has **not** been verified against the actual component library ([seed-health/my-seed-live → components](https://github.com/seed-health/my-seed-live/tree/main/components)) or the hosted Storybook ([Chromatic](https://www.chromatic.com/library?appId=63b5c3a4b545db5441de378b)).
+>
+> Several token references below (e.g. `color.status.error`, `color.science.*`, `shadow.sm`, `motion.easing.entrance`, `bp.md`) **do not exist** in `@seed-health/tokens`. Use `tokens.md` for real names.
+>
+> Seed-specific patterns surfaced during page capture (ViaCap explainer, benefit timeline, comparison table, welcome kit card, subscription tier selector, attribute badge grid) are **not listed** here yet.
+>
+> Dev refactor is underway. This file will be regenerated from `my-seed-live/components` + Storybook once the refactor settles. Until then, when an agent needs a real component, read the code directly rather than citing this file.
+
 Current component inventory. Status flags indicate where each component lives and its maturity. Figma is ahead of this file in most cases; update when stabilizing.
 
 ## Status legend
