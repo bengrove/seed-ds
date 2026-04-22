@@ -198,7 +198,7 @@ seed-ds/
 │   └── claude-design-setup.md    rollout playbook for Anthropic's Claude Design
 ├── README.md
 ├── LICENSE
-└── decisions.md  (you are here)
+└── ARCHITECTURE.md  (you are here)
 ```
 
 ### Why `.claude-plugin/plugin.json` exists
@@ -220,10 +220,10 @@ Three reasons.
 2. Separate files let humans edit in parallel without merge conflicts.
 3. Each file has a clear owner (tokens → design systems lead, voice → brand lead, etc.), so updates happen at the right place.
 
-### Why `README.md` and `decisions.md` are separate
+### Why `README.md` and `ARCHITECTURE.md` are separate
 
 - `README.md` is for someone landing on the repo cold. "What is this, how do I install, what do I do first."
-- `decisions.md` is for someone wanting to understand or change the architecture. "Why is the structure like this, and what would I change."
+- `ARCHITECTURE.md` is for someone wanting to understand or change the architecture. "Why is the structure like this, and what would I change."
 
 Different audiences, different jobs.
 
