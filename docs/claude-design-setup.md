@@ -20,8 +20,8 @@ During first-run, Claude reads your codebase and design files to build a shared 
 **Point Claude at:**
 - [ ] This repo (`seed-ds`) — the agent-first design system; `pages/` captures give Claude Design real seed.com examples, and `copy/*.md` covers TOV so no separate DOCX upload is needed
 - [ ] Design token library repo (GitHub): [seed-health/tokens](https://github.com/seed-health/tokens)
-- [ ] Component library repo (GitHub): `<REPO_URL>`
-- [ ] Hosted Storybook: `<STORYBOOK_URL>`
+- [ ] Component library repo (GitHub): [seed-health/my-seed-live → components](https://github.com/seed-health/my-seed-live/tree/main/components)
+- [ ] Hosted Storybook: [Chromatic library](https://www.chromatic.com/library?appId=63b5c3a4b545db5441de378b)
 - [ ] Figma files (design system, key components)
 
 Since tokens already live in code, that's your source of truth. Feed the tokens repo and component repo so Claude inherits your primitives, not just colors.

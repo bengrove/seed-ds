@@ -136,8 +136,8 @@ Use the seed skill to build a pricing section.
 
 During Claude Design onboarding, point it at:
 - This repo (tokens, components, voice, patterns, `pages/`, `products/`) — voice lives here, no separate TOV upload needed
-- Component library repo on GitHub: `<REPO_URL>`
-- Hosted Storybook: `<STORYBOOK_URL>`
+- Component library repo on GitHub: [seed-health/my-seed-live → components](https://github.com/seed-health/my-seed-live/tree/main/components)
+- Hosted Storybook: [Chromatic library](https://www.chromatic.com/library?appId=63b5c3a4b545db5441de378b)
 - Figma files (design system + key components)
 
 The `pages/` captures are particularly useful — they give Claude Design real seed.com examples of how templates compose, not just abstract rules.
