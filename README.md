@@ -46,7 +46,7 @@ seed-ds/
 │           │   ├── seed-labs/     Research page canonical example
 │           │   ├── faq/           help.seed.com (gorgias skin - flagged in frontmatter)
 │           │   └── flows/
-│           │       ├── biotics-quiz/    pre-purchase funnel
+│           │       ├── biotics-quiz/    Pre-purchase funnel
 │           │       └── web-onboarding/  DS-01 web onboarding as canonical example
 │           └── products/          Per-product visual/content identity within templates
 │               ├── _template.md
@@ -72,7 +72,9 @@ seed-ds/
 
 🟡 **Live references:** `references/pages/` captures raw site templates (markdown + desktop/mobile screenshots + `.h2d` html.to.design exports). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 3/14 page templates captured, 0/6 products populated.
 
-## Install as a Claude Code skill
+## Setup
+
+### 1. Claude Code (primary)
 
 Prerequisite: [Claude Code CLI](https://docs.claude.com/en/docs/claude-code) installed and authenticated (`claude` on your PATH).
 
@@ -98,31 +100,39 @@ Inside the Claude Code session, run:
 /plugin list
 ```
 
-You should see `seed` under installed plugins. The skill auto-activates on UI/design tasks — no manual invocation needed. To force-load it, reference it directly:
+You should see `seed` under installed plugins.
+
+**4. Smoke-test the skill**
+
+Confirm the skill is actually loading, not just listed. Ask something on-brand:
+
+```
+Using the seed skill, what's our primary brand color and how should I use it?
+```
+
+Claude should reference `color.primary.seed-green` and pull the usage rule from `tokens.md`. If it hedges or invents a value, the skill didn't load — re-check step 2.
+
+**5. Update or remove**
+
+After any commit to this repo (new captures, token sync, voice changes), refresh:
+
+```
+/plugin update seed@seed-ds
+```
+
+To uninstall:
+
+```
+/plugin uninstall seed@seed-ds
+```
+
+**How activation works:** the skill auto-activates on UI, design, copy, and Seed-specific tasks. For unrelated work it stays dormant. To force-load, reference the skill by name:
 
 ```
 Use the seed skill to build a pricing section.
 ```
 
-**4. Update or remove**
-
-```
-/plugin update seed@seed-ds
-/plugin uninstall seed@seed-ds
-```
-
-Once installed, any UI task in Claude Code reads `SKILL.md` and emits code against Seed's rules in your target stack.
-
-## Use with other agents
-
-Plain markdown, no lock-in. Clone and point any agent (Cursor, Windsurf, Aider, Claude Design) at `skills/seed/SKILL.md`.
-
-```
-git clone https://github.com/bengrove/seed-ds.git .seed-skill
-# Then: "Read .seed-skill/skills/seed/SKILL.md and generate a top-of-funnel lander."
-```
-
-## Use with Claude Design
+### 2. Claude Design
 
 During Claude Design onboarding, point it at:
 - This repo (tokens, components, voice, patterns, `pages/`, `products/`)
@@ -132,7 +142,37 @@ During Claude Design onboarding, point it at:
 
 The `pages/` captures are particularly useful — they give Claude Design real seed.com examples of how templates compose, not just abstract rules.
 
+**First project:** rebuild the DS-01 PDP from `pages/pdp/`. It exercises the full module library and gives you a known-good visual to compare Claude Design's output against.
+
 See [docs/claude-design-setup.md](docs/claude-design-setup.md) for the full rollout playbook (admin access, usage budgeting, export workflows, Figma workarounds).
+
+### 3. Other LLMs and IDEs
+
+seed-ds is plain markdown — any agent that can read files in a workspace can use it. No lock-in, no proprietary format.
+
+**Clone the repo into your project:**
+
+```bash
+git clone https://github.com/bengrove/seed-ds.git .seed-skill
+```
+
+Then point your agent at `skills/seed/SKILL.md` as its entry point. A reusable system prompt:
+
+> Read `.seed-skill/skills/seed/SKILL.md` before any UI, design, or copy task for Seed. Follow the read order and non-negotiable principles defined there.
+
+**Known-working setups:**
+
+| Tool | Category | How to load |
+|---|---|---|
+| Cursor | IDE | `@file` the SKILL.md, or add the path to `.cursorrules` / project rules |
+| Windsurf | IDE | Add SKILL.md to workspace or global rules |
+| VS Code + Copilot | IDE | Add SKILL.md to Copilot's custom instructions for the workspace |
+| Gemini Antigravity | IDE | Include the repo as workspace context |
+| OpenAI Codex CLI | CLI | Attach SKILL.md to the session or include in prompt |
+| Aider | CLI | `/add skills/seed/SKILL.md` at startup |
+| Claude Desktop / web LLMs | Chat | Paste SKILL.md contents or attach the file as the first message |
+
+If your tool supports workspace-level rule files (`.cursorrules`, `.windsurfrules`, etc.), symlink SKILL.md into that location so the rules load without an explicit prompt.
 
 ## Contributing
 
