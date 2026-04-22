@@ -37,7 +37,6 @@ Translate information into understanding. Use progressive disclosure. Build brid
 - Layer detail. Headline carries the point. Body adds the why. Drawer holds the deep dive.
 
 **Avoid**
-- Teaching mode that condescends ("did you know…").
 - Stacking three analogies. Pick one.
 - Jargon walls that gate understanding behind terminology.
 - Pretending a hard thing is easy. Make it clear, not cute.

@@ -101,7 +101,7 @@ Code examples (React/HTML with tokens) live in the sibling `/references/examples
 
 **Onboarding welcome**
 - Headline: `Welcome to Seed.`
-- Subcopy: `Your first delivery arrives in 2 business days. Take 2 capsules daily on an empty stomach, first thing in the morning.`
+- Subcopy: `Your first delivery arrives in 2 business days. Take 2 capsules daily, with or without food.`
 
 **Shipment confirmation**
 - Subject: `Your DS-01® is on its way.`
@@ -163,7 +163,7 @@ Use when you need to bias a single piece of copy toward one pillar more than ano
 - Not: `When you take DS-01®, you are seeding your gut with beneficial bacteria.`
 
 ### Claims
-- Do: `Relieve Bloating in 1 Week*`
+- Do: `In just 1 week, DS-01® will help you feel less bothered by bloating**°`
 - Not: `Relieve Bloating in 1 Week With DS-01®*`
 
 ### Headlines

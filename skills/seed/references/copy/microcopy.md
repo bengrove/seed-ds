@@ -8,7 +8,7 @@ String-level patterns for CTAs, form labels, errors, empty states, loading state
 
 ## CTA principles
 
-1. **Action verbs, 1-4 words.** Title Case. Aim for brevity and specificity.
+1. **Action verbs, 1-4 words.** Sentence Case. Aim for brevity and specificity.
 2. **Confirm what happens.** "Start your subscription," not "Get started."
 3. **Never use:** `Click here`, `Submit`, `OK` alone, or vague intents.
 4. **Differentiate when multiple CTAs exist on one surface.** If the hero CTA says "Start DS-01®," the second module CTA should shift angle, e.g., "Save 30% on DS-01®."
@@ -41,7 +41,7 @@ Direct, conversion-forward. Use first person when personalization fits (quiz res
 | Context | CTA |
 |---|---|
 | Subscribe primary | `Start DS-01®` |
-| Subscribe (first person) | `Start My DS-01® Journey` |
+| Subscribe (first person) | `Start my DS-01® Journey` |
 | Add bundle | `Add Bundle` |
 | Enroll in program | `Enroll Now` |
 | Shop SKU | `Shop Now` |

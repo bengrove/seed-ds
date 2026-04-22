@@ -87,13 +87,13 @@ Secondary T&C when a dagger is already in use.
 
 ## Capitalization (casing)
 
-Use AP style for titles and headers. Capitalize main words including both parts of hyphenated words. Lowercase "little" words (three letters and shorter). To-be verbs (Is, Are) are capitalized in headlines.
+Use Sentence case for titles and headers. Lowercase "little" words (three letters and shorter). To-be verbs (Is, Are) are capitalized in headlines.
 
 ### By channel
 
 | Channel | Nav | Banner | Headline | Body | CTA |
 |---|---|---|---|---|---|
-| Web | Title Case | Title Case | Sentence case with punctuation | Sentence case | Title Case, ≤4 words |
+| Web | Sentence Case | Sentence case | Sentence case with punctuation | Sentence case | Title Case, ≤4 words |
 | Email | — | Title Case | Title Case | Sentence case | Title Case |
 | Ads | — | — | Title Case | Sentence case | Title Case |
 | Social (on graphic) | — | — | Title Case for fragments; Sentence for full sentences | Sentence case | — |
@@ -104,9 +104,9 @@ Use AP style for titles and headers. Capitalize main words including both parts 
 `a, an, the, and, but, for, or, nor, at, by, for, in, of, off, on, out, to, up, to`
 
 ### Headline examples
-- AP: "Trust Your Gut-Brain Axis" (Gut-Brain is hyphenated, both parts capped)
+- AP: "Trust your gut-brain axis" (Gut-Brain is hyphenated, both parts capped)
 - Not AP: "News From the Seed-verse" (missed lowercase "From" and "the"; or hyphenated capitalization)
-- Not AP: "Can probiotics boost vaginal health?" (sentence case used where title case is required)
+
 
 ---
 
@@ -223,7 +223,7 @@ Examples:
 ## Lists and bullets
 
 ### Casing
-- **Short phrases:** Title Case.
+- **Short phrases:** Sentence Case.
 - **Full sentences:** Sentence case.
 
 ### Punctuation
