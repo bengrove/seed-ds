@@ -2,6 +2,16 @@
 
 🚧 **Coming soon.** A verified component inventory will be regenerated from [seed-health/my-seed-live → components](https://github.com/seed-health/my-seed-live/tree/main/components) and the [hosted Storybook](https://www.chromatic.com/library?appId=63b5c3a4b545db5441de378b) once the dev refactor settles.
 
+## Shipped components
+
+Verified, shipped to `my-seed-live`, and ready for agents to reference by name. Minimal info only — full anatomy, variants, and states will arrive when this file is regenerated from source.
+
+Add a row when a component ships. Storybook links can lag the code link; the Chromatic catalog is updated on its own cadence.
+
+| Component | Code | Storybook | Shipped |
+|---|---|---|---|
+| Badge | [my-seed-live/components](https://github.com/seed-health/my-seed-live/tree/main/components) | *pending* | 2026-04-22 |
+
 ## In the meantime
 
 When an agent needs a component:
