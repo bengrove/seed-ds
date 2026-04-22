@@ -7,11 +7,9 @@ surfaces:
   desktop:
     viewport: 1440
     screenshot: ./desktop.png
-    figma: ./desktop.h2d
   mobile:
     viewport: 390
     screenshot: ./mobile.png
-    figma: ./mobile.h2d
 notes: |
   Canonical PDP capture (steady-state — no live promo). DS-01 exercises the
   full PDP module library: hero, ViaCap, benefit timeline, compare table,

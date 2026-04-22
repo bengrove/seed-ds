@@ -6,13 +6,11 @@ surfaces:
   desktop:
     viewport: 1440
     screenshot: ./desktop.png
-    figma: ./desktop.h2d
   mobile:
     viewport: 390
     screenshot: ./mobile.png
-    figma: ./mobile.h2d
 notes: |
-  Capture caveats (html.to.design cleanup needed? auth-gated sections skipped? etc.)
+  Capture caveats (auth-gated sections skipped, promo variants, etc.)
 ---
 
 # <Template name>

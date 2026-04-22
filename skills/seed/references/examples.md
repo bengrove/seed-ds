@@ -6,7 +6,7 @@
 
 When an agent needs a composition example:
 
-1. **Page patterns** — read [`pages/`](./pages/) for real seed.com compositions (homepage, PDP, PLP). Each capture includes the content markdown, desktop/mobile screenshots, and an `.h2d` file you can re-import into Figma.
+1. **Page patterns** — read [`pages/`](./pages/) for real seed.com compositions (homepage, PDP, PLP). Each capture includes content markdown and desktop + mobile full-page screenshots.
 2. **Component API** — read the code directly at `my-seed-live/components/`. Cross-reference [Storybook](https://www.chromatic.com/library?appId=63b5c3a4b545db5441de378b) for props and states.
 3. **Copy patterns** — use [`copy/examples.md`](./copy/examples.md) for approved headlines, CTAs, and funnel-stage copy. That file is sourced from the Brand TOV 2025 and Seed Copy Style Guide 2026 and stays authoritative.
 4. **Tokens** — use real token names from [`tokens.md`](./tokens.md). Never emit code with invented token references.

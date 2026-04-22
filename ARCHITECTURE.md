@@ -134,11 +134,13 @@ Every section records: what was decided, what was rejected, why, and what would 
 
 ### 11: Live page captures live alongside the rules
 
-**Decided:** `references/pages/` and `references/products/` hold real captures of seed.com — markdown (via `.MD this page`), desktop and mobile screenshots, and `.h2d` files from html.to.design. Each page template gets a folder with an `index.md` + assets.
+**Decided:** `references/pages/` and `references/products/` hold real captures of seed.com — content markdown (via `.MD this page` extension) and desktop + mobile full-page screenshots. Each page template gets a folder with an `index.md` + assets.
 
 **Rejected:** Keeping live site references in an external system (Figma file, Notion page) and linking out. Or relying only on abstract pattern descriptions in `patterns.md`.
 
-**Why:** Agents generate better output when grounded in real examples. A prose description of "the PDP has a hero, a benefit timeline, a comparison table" is weaker than an agent that can read the actual content, see the composition in a screenshot, and inspect layout via the `.h2d`. Three file types cover three different agent needs: markdown for content structure, PNG for visual composition, `.h2d` for layout inspection.
+**Why:** Agents generate better output when grounded in real examples. A prose description of "the PDP has a hero, a benefit timeline, a comparison table" is weaker than an agent that can read the actual content and see the composition in a screenshot. Two file types cover two different agent needs: markdown for content structure, PNG for visual composition.
+
+Previously also captured `.h2d` (html.to.design) Figma imports, but the format is binary, non-agent-readable, and mostly duplicated the screenshot's value. Dropped in favor of a lighter footprint — a designer who needs a Figma version can re-export on demand.
 
 **Would reconsider if:** Storage gets unmanageable (git LFS becomes mandatory) or captures drift so fast they're worse than no reference. At that point, script automated captures instead of manual.
 
@@ -190,7 +192,7 @@ seed-ds/
 │           ├── lessons.md
 │           ├── examples.md
 │           ├── pages/            live captures of seed.com templates
-│           │                     (markdown + desktop/mobile .png + .h2d)
+│           │                     (content markdown + desktop/mobile .png)
 │           └── products/         per-product identity within templates
 ├── scripts/
 │   └── sync-tokens.mjs           regenerates tokens.md from seed-health/tokens
@@ -249,7 +251,7 @@ Each reference file has a single job. If content doesn't fit the job, it belongs
 | `assets.md` | Bynder URL patterns, Media Container ratios, imagery, video, alt text | Creative lead |
 | `lessons.md` | Gotchas, decision log, open questions | Everyone |
 | `examples.md` | Copy-ready snippets for common surfaces | DS lead |
-| `pages/` | Live seed.com page template captures (markdown + screenshots + `.h2d`) | DS lead |
+| `pages/` | Live seed.com page template captures (content markdown + screenshots) | DS lead |
 | `products/` | Per-product identity (color, claims, imagery direction) keyed to a template | DS lead + Brand lead |
 | `scripts/sync-tokens.mjs` | Regenerates tokens.md from seed-health/tokens | Eng lead |
 | `docs/claude-design-setup.md` | Rollout playbook for Anthropic's Claude Design tool | DS lead |

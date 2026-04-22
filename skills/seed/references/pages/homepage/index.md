@@ -6,13 +6,11 @@ surfaces:
   desktop:
     viewport: 1440
     screenshot: ./desktop.png
-    figma: ./desktop.h2d
   mobile:
     viewport: 390
     screenshot: ./mobile.png
-    figma: ./mobile.h2d
 notes: |
-  Captured via .MD this page extension + html.to.design.
+  Content captured via .MD this page extension. Screenshots full-page.
 ---
 
 # Homepage
