@@ -140,8 +140,6 @@ Every section records: what was decided, what was rejected, why, and what would 
 
 **Why:** Agents generate better output when grounded in real examples. A prose description of "the PDP has a hero, a benefit timeline, a comparison table" is weaker than an agent that can read the actual content and see the composition in a screenshot. Two file types cover two different agent needs: markdown for content structure, PNG for visual composition.
 
-Previously also captured `.h2d` (html.to.design) Figma imports, but the format is binary, non-agent-readable, and mostly duplicated the screenshot's value. Dropped in favor of a lighter footprint — a designer who needs a Figma version can re-export on demand.
-
 **Would reconsider if:** Storage gets unmanageable (git LFS becomes mandatory) or captures drift so fast they're worse than no reference. At that point, script automated captures instead of manual.
 
 ---
