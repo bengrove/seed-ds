@@ -135,14 +135,12 @@ Use the seed skill to build a pricing section.
 ### 2. Claude Design
 
 During Claude Design onboarding, point it at:
-- This repo (tokens, components, voice, patterns, `pages/`, `products/`)
-- The component library repo
+- This repo (tokens, components, voice, patterns, `pages/`, `products/`) — voice lives here, no separate TOV upload needed
+- Component library repo on GitHub: `<REPO_URL>`
+- Hosted Storybook: `<STORYBOOK_URL>`
 - Figma files (design system + key components)
-- TOV / copy style guide (DOCX upload)
 
 The `pages/` captures are particularly useful — they give Claude Design real seed.com examples of how templates compose, not just abstract rules.
-
-**First project:** rebuild the DS-01 PDP from `pages/pdp/`. It exercises the full module library and gives you a known-good visual to compare Claude Design's output against.
 
 See [docs/claude-design-setup.md](docs/claude-design-setup.md) for the full rollout playbook (admin access, usage budgeting, export workflows, Figma workarounds).
 

@@ -18,11 +18,11 @@ Access: [claude.ai/design](https://claude.ai/design)
 During first-run, Claude reads your codebase and design files to build a shared design system that auto-applies to every future project.
 
 **Point Claude at:**
-- [ ] Design token library repo (GitHub)
-- [ ] Component library repo (GitHub)
+- [ ] This repo (`seed-ds`) — the agent-first design system; `pages/` captures give Claude Design real seed.com examples, and `copy/*.md` covers TOV so no separate DOCX upload is needed
+- [ ] Design token library repo (GitHub): [seed-health/tokens](https://github.com/seed-health/tokens)
+- [ ] Component library repo (GitHub): `<REPO_URL>`
+- [ ] Hosted Storybook: `<STORYBOOK_URL>`
 - [ ] Figma files (design system, key components)
-- [ ] TOV and copy style guide (upload as DOCX)
-- [ ] This repo (`seed-ds`) — the agent-first design system; `pages/` captures give Claude Design real seed.com examples of how templates compose
 
 Since tokens already live in code, that's your source of truth. Feed the tokens repo and component repo so Claude inherits your primitives, not just colors.
 
@@ -76,7 +76,7 @@ Has its own weekly limits separate from chat and Claude Code.
 ## 7. Quick-start sequence
 
 1. Admin enables in org settings
-2. Onboard with tokens repo + component repo + Figma files + TOV guide + `seed-ds`
+2. Onboard with `seed-ds` + tokens repo + component repo + hosted Storybook + Figma files (`seed-ds` covers TOV)
 3. Build lander #1, export HTML, iterate
 4. Use handoff bundle to Claude Code for production build against real component library
 5. Loop designers in for polish via edit-access sharing
