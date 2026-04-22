@@ -10,7 +10,7 @@ Add a row when a component ships. Storybook links can lag the code link; the Chr
 
 | Component | Code | Storybook | Shipped |
 |---|---|---|---|
-| Badge | [my-seed-live/components](https://github.com/seed-health/my-seed-live/tree/main/components) | *pending* | 2026-04-22 |
+| Badge | [components/global/Badge](https://github.com/seed-health/my-seed-live/tree/main/components/global/Badge) | [stories.tsx](https://github.com/seed-health/my-seed-live/blob/main/components/global/Badge/stories.tsx) | 2026-04-22 |
 
 ## In the meantime
 
