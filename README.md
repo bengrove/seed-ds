@@ -2,55 +2,55 @@
 
 Agent-first design system for Seed. A Claude Code skill that teaches any coding agent Seed's tokens, components, voice, and patterns so generated work stays on-brand across surfaces.
 
-This repo is the source of truth for agents. It is **not** a replacement for Figma or the production component library. It is the translation layer that keeps AI output consistent with both.
+This repo is the source of truth for agents. It is **not** a replacement for Figma or the MSL component library. It is the translation layer that keeps AI output consistent with both.
 
 ## What's in here
 
 ```
 seed-ds/
-├── .claude-plugin/
+├── .claude-plugin/              
 │   └── plugin.json              Plugin manifest
 ├── skills/
 │   └── seed/
-│       ├── SKILL.md             Entry point, agent activation rules
+│       ├── SKILL.md             Ingress point, agent activation rules
 │       └── references/
-│           ├── tokens.md        Every design token with usage rules
+│           ├── tokens.md        Design tokend with usage rules
 │           ├── components.md    Component inventory, anatomy, states
 │           ├── voice.md         Index pointing to copy/*.md
 │           ├── copy/
 │           │   ├── tov.md       Three pillars, formulas, funnel-stage voice mix
 │           │   ├── mechanics.md Grammar, punctuation, citations, casing, emoji
 │           │   ├── vocabulary.md Defined terms, product naming, Elevated vs. Simple
-│           │   ├── surfaces.md  Per-surface rules (home, PLP, PDP, cart, email, ads, social)
+│           │   ├── surfaces.md  Per-surface rules (homepage, PLP, PDP, cart, email, ads, social)
 │           │   ├── microcopy.md CTAs, errors, empty states, subscription controls (verbatim strings)
 │           │   ├── compliance.md Structure/function vs. disease, FDA disclaimer, strain claims
 │           │   └── examples.md  Approved copy by funnel stage and pillar
-│           ├── patterns.md      Modules, landers, PDP template, member experience flows
+│           ├── patterns.md      Modules, page templates, core fows
 │           ├── responsive.md    Breakpoints, grid, container rules
 │           ├── motion.md        Easing, durations, overlay rules
-│           ├── assets.md        Bynder CDN, imagery rules, Media Container ratios
-│           ├── lessons.md       Gotchas and decisions from real builds
+│           ├── assets.md        Bynder CDN integration, imagery rules, media container ratios
+│           ├── lessons.md       Gotchas and decisions from prod
 │           ├── examples.md      Copy-ready composition snippets (React/HTML with tokens)
-│           ├── pages/           Raw captures of live seed.com page templates
+│           ├── pages/           Raw captures of core live seed.com pages
 │           │   ├── _template/   Starter frontmatter + structure for new captures
 │           │   ├── homepage/    index.md + desktop/mobile .png + .h2d
-│           │   ├── pdp/         (Daily Synbiotic as canonical example)
+│           │   ├── pdp/         DS-01 as canonical example
 │           │   ├── plp/
-│           │   ├── cart/
-│           │   ├── checkout/
-│           │   ├── account/
-│           │   ├── subscription/
-│           │   ├── reference/   DS scientific reference page
-│           │   ├── cultured-article/
-│           │   ├── approach/    science page
-│           │   ├── seed-labs/   research page
-│           │   ├── faq/         help.seed.com (third-party skin — flagged in frontmatter)
+│           │   ├── cart/        Current standalone cart (flyout coming soon)
+│           │   ├── checkout/    Shopify checkout
+│           │   ├── account/     Account home
+│           │   ├── subscription/  Subscription management
+│           │   ├── reference/   DS-01 reference page as canonical example
+│           │   ├── cultured-article/  Microbiome 101 article as canonical example
+│           │   ├── approach/    Science page as canonical example
+│           │   ├── seed-labs/   Research page canonical example
+│           │   ├── faq/         help.seed.com (gorias skin - flagged in frontmatter)
 │           │   └── flows/
 │           │       ├── biotics-quiz/    pre-purchase funnel
-│           │       └── web-onboarding/
+│           │       └── web-onboarding/  DS-01 web onboarding as canonical example
 │           └── products/        Per-product visual/content identity within templates
 │               ├── _template.md
-│               ├── daily-synbiotic.md   (DS-01)
+│               ├── ds-01.md             Daily Synbiotic
 │               ├── dm-02.md             Daily Multivitamin
 │               ├── am-02.md             Focus + Energy
 │               ├── pm-02.md             Sleep + Restore
