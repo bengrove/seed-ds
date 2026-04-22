@@ -45,18 +45,23 @@ Every section records: what was decided, what was rejected, why, and what would 
 
 ---
 
-### 04: Storybook is the component source of truth, not Figma
+### 04: Components are sourced from `my-seed-live/components` + screenshots today; Storybook is the eventual goal
 
-**Decided:** When a component exists in both Figma and Storybook, Storybook wins for agent input. Figma is the design tool; Storybook is the contract.
+**Decided:** Right now, Figma is ahead of both code and Storybook. The design library has many components specced, eng has shipped one (Badge, 2026-04-22), and the entire frontend codebase is mid-refactor. Until that refactor lands, agents read from two places, in priority order:
+1. Real component code in [seed-health/my-seed-live/components](https://github.com/seed-health/my-seed-live/tree/main/components) — canonical for anything actually shipped.
+2. Figma screenshots + Figma MCP / Code Connect — for components that exist in design but not yet in code.
 
-**Rejected:** Figma as source of truth (what most design teams assume). Figma MCP + Code Connect as the primary handoff.
+The eventual end state is Storybook (Chromatic) as the agent-facing source of truth, with Code Connect bridging Figma → code so agents and humans see the same thing.
 
-**Why:** Three reasons specific to Seed's situation.
-1. Figma component library is half-built. Storybook is further along.
-2. Storybook contains real code with real states. Figma shows visual intent but doesn't render browser-accurate.
-3. Claude Design and Claude Code both read code better than they read Figma files. Storybook being the truth means less translation loss.
+**Rejected:** Treating Figma as the sole source of truth (most design teams' default). Treating Storybook as the source of truth today (it lags both Figma and the code).
 
-**Would reconsider if:** Figma reaches parity or leads. At that point, Code Connect mappings become the bridge and we can treat them as equivalent sources.
+**Why:** Four reasons specific to where Seed is right now.
+1. Figma is the most complete artifact today. Pretending Storybook leads would force agents to invent components that don't exist yet in code.
+2. The `components/` folder in `my-seed-live` is the only place where shipped behavior is real. When code exists, it wins, full stop.
+3. Chromatic Storybook can lag the code during the refactor. It will catch up, but it can't be trusted as canonical mid-rebuild.
+4. Figma MCP + Code Connect are still valid investments. They're how we'll bridge design → code once both sides stabilize, and they're how agents currently read components that aren't in code yet.
+
+**Would reconsider if:** The refactor ships, Storybook reaches parity with the codebase, and Code Connect mappings cover the shipped set. At that point Storybook becomes the source of truth and this decision flips back to its original form.
 
 ---
 
@@ -278,10 +283,11 @@ Things that must stay in sync with sources outside this repo.
 
 ### Components
 
-- Source: Storybook repo (component code) + Figma component library (designs)
-- Mirrored in: `references/components.md`
-- Sync when: a component moves status (e.g., `figma-only` → `beta`)
-- How: update the status flag in components.md, add a note to lessons.md if the decision had rationale
+- Source (today): `my-seed-live/components` (shipped code) + Figma library + screenshots (designed but unbuilt)
+- Source (target): Chromatic Storybook + Figma Code Connect mappings
+- Mirrored in: `references/components.md` (Shipped registry tracks anything that exists in code)
+- Sync when: a component ships in `my-seed-live`, or moves status (`figma-only` → `beta` → `stable`)
+- How: add/update the entry in components.md with links to the real code path and Story, add a note to lessons.md if the decision had rationale
 
 ### Bynder patterns
 

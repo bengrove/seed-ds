@@ -33,6 +33,13 @@ _Auto-generated from [seed-health/tokens@2e58945](https://github.com/seed-health
 | `desktop-display.large` | fontFamily: `Seed Sans`<br>fontSize: `64px`<br>fontWeight: `350`<br>letterSpacing: `-1.28px`<br>lineHeight: `110%` |
 | `desktop-display.small` | fontFamily: `Seed Sans`<br>fontSize: `48px`<br>fontWeight: `350`<br>letterSpacing: `-0.96px`<br>lineHeight: `100%` |
 
+### Mobile Display
+
+| Token | Value |
+|---|---|
+| `mobile-display.large` | fontFamily: `Seed Sans`<br>fontSize: `48px`<br>fontWeight: `350`<br>letterSpacing: `-0.96px`<br>lineHeight: `110%` |
+| `mobile-display.small` | fontFamily: `Seed Sans`<br>fontSize: `40px`<br>fontWeight: `350`<br>letterSpacing: `-0.8px`<br>lineHeight: `110%` |
+
 ### Fixed
 
 | Token | Value |
@@ -65,13 +72,6 @@ _Auto-generated from [seed-health/tokens@2e58945](https://github.com/seed-health
 | Token | Value |
 |---|---|
 | `frosted-glass-strong` | `blur(75px)` |
-
-### Mobile Display
-
-| Token | Value |
-|---|---|
-| `mobile-display.large` | fontFamily: `Seed Sans`<br>fontSize: `48px`<br>fontWeight: `350`<br>letterSpacing: `-0.96px`<br>lineHeight: `110%` |
-| `mobile-display.small` | fontFamily: `Seed Sans`<br>fontSize: `40px`<br>fontWeight: `350`<br>letterSpacing: `-0.8px`<br>lineHeight: `110%` |
 
 ### Screen Grids
 
