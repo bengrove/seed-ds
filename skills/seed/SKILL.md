@@ -20,7 +20,7 @@ On activation, read in this order:
 1. This file (you are here)
 2. `references/tokens.md` for visual primitives
 3. `references/voice.md` as the index to copy rules (points you to `copy/*.md`)
-4. Relevant surface-specific reference: `patterns.md` or `components.md` (note: `components.md` is currently DRAFT — verify anything you cite against `my-seed-live/components` or Storybook)
+4. Relevant surface-specific reference: `patterns.md` or `components.md` (the latter is a placeholder — read `my-seed-live/components` and Storybook directly for real components)
 5. `references/lessons.md` before shipping, to avoid known gotchas
 
 ### Copy-specific read order
