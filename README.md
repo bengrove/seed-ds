@@ -9,46 +9,46 @@ This repo is the source of truth for agents. It is **not** a replacement for Fig
 ```
 seed-ds/
 ├── .claude-plugin/              
-│   └── plugin.json              Plugin manifest
+│   └── plugin.json                Plugin manifest
 ├── skills/
 │   └── seed/
-│       ├── SKILL.md             Ingress point, agent activation rules
+│       ├── SKILL.md               Ingress point, agent activation rules
 │       └── references/
-│           ├── tokens.md        Design tokend with usage rules
-│           ├── components.md    Component inventory, anatomy, states
-│           ├── voice.md         Index pointing to copy/*.md
+│           ├── tokens.md          Design tokend with usage rules
+│           ├── components.md      Component inventory, anatomy, states
+│           ├── voice.md           Index pointing to copy/*.md
 │           ├── copy/
-│           │   ├── tov.md       Three pillars, formulas, funnel-stage voice mix
-│           │   ├── mechanics.md Grammar, punctuation, citations, casing, emoji
-│           │   ├── vocabulary.md Defined terms, product naming, Elevated vs. Simple
-│           │   ├── surfaces.md  Per-surface rules (homepage, PLP, PDP, cart, email, ads, social)
-│           │   ├── microcopy.md CTAs, errors, empty states, subscription controls (verbatim strings)
-│           │   ├── compliance.md Structure/function vs. disease, FDA disclaimer, strain claims
-│           │   └── examples.md  Approved copy by funnel stage and pillar
-│           ├── patterns.md      Modules, page templates, core fows
-│           ├── responsive.md    Breakpoints, grid, container rules
-│           ├── motion.md        Easing, durations, overlay rules
-│           ├── assets.md        Bynder CDN integration, imagery rules, media container ratios
-│           ├── lessons.md       Gotchas and decisions from prod
-│           ├── examples.md      Copy-ready composition snippets (React/HTML with tokens)
-│           ├── pages/           Raw captures of core live seed.com pages
-│           │   ├── _template/   Starter frontmatter + structure for new captures
-│           │   ├── homepage/    index.md + desktop/mobile .png + .h2d
-│           │   ├── pdp/         DS-01 as canonical example
+│           │   ├── tov.md         Three pillars, formulas, funnel-stage voice mix
+│           │   ├── mechanics.md   Grammar, punctuation, citations, casing, emoji
+│           │   ├── vocabulary.md  Defined terms, product naming, Elevated vs. Simple
+│           │   ├── surfaces.md    Per-surface rules (homepage, PLP, PDP, cart, email, ads, social)
+│           │   ├── microcopy.md   CTAs, errors, empty states, subscription controls (verbatim strings)
+│           │   ├── compliance.md  Structure/function vs. disease, FDA disclaimer, strain claims
+│           │   └── examples.md    Approved copy by funnel stage and pillar
+│           ├── patterns.md        Modules, page templates, core fows
+│           ├── responsive.md      Breakpoints, grid, container rules
+│           ├── motion.md          Easing, durations, overlay rules
+│           ├── assets.md          Bynder CDN integration, imagery rules, media container ratios
+│           ├── lessons.md         Gotchas and decisions from prod
+│           ├── examples.md        Copy-ready composition snippets (React/HTML with tokens)
+│           ├── pages/             Raw captures of core live seed.com pages
+│           │   ├── _template/     Starter frontmatter + structure for new captures
+│           │   ├── homepage/      index.md + desktop/mobile .png + .h2d
+│           │   ├── pdp/           DS-01 as canonical example
 │           │   ├── plp/
-│           │   ├── cart/        Current standalone cart (flyout coming soon)
-│           │   ├── checkout/    Shopify checkout
-│           │   ├── account/     Account home
+│           │   ├── cart/          Current standalone cart (flyout coming soon)
+│           │   ├── checkout/      Shopify checkout
+│           │   ├── account/       Account home
 │           │   ├── subscription/  Subscription management
-│           │   ├── reference/   DS-01 reference page as canonical example
-│           │   ├── cultured-article/  Microbiome 101 article as canonical example
-│           │   ├── approach/    Science page as canonical example
-│           │   ├── seed-labs/   Research page canonical example
-│           │   ├── faq/         help.seed.com (gorias skin - flagged in frontmatter)
+│           │   ├── reference/     DS-01 reference page as canonical example
+│           │   ├── cultured/      Microbiome 101 article as canonical example
+│           │   ├── approach/      Science page as canonical example
+│           │   ├── seed-labs/     Research page canonical example
+│           │   ├── faq/           help.seed.com (gorias skin - flagged in frontmatter)
 │           │   └── flows/
 │           │       ├── biotics-quiz/    pre-purchase funnel
 │           │       └── web-onboarding/  DS-01 web onboarding as canonical example
-│           └── products/        Per-product visual/content identity within templates
+│           └── products/          Per-product visual/content identity within templates
 │               ├── _template.md
 │               ├── ds-01.md             Daily Synbiotic
 │               ├── dm-02.md             Daily Multivitamin
@@ -56,7 +56,7 @@ seed-ds/
 │               ├── pm-02.md             Sleep + Restore
 │               ├── pds-08.md            Pediatric Synbiotic
 │               └── vs-01.md             Vaginal Synbiotic
-├── README.md                    You are here
+├── README.md                      You are here
 └── LICENSE
 ```
 
