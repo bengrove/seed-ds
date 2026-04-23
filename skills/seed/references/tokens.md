@@ -24,7 +24,7 @@ When emitting code, prefer the token reference (CSS var or JS import) over hardc
 
 <!-- SYNC:BEGIN -->
 
-_Auto-generated from [seed-health/tokens@2e58945](https://github.com/seed-health/tokens/tree/2e58945) on 2026-04-20. Do not edit by hand — run `node scripts/sync-tokens.mjs`._
+_Auto-generated from [seed-health/tokens@c3369cb](https://github.com/seed-health/tokens/tree/c3369cb) on 2026-04-23. Do not edit by hand — run `node scripts/sync-tokens.mjs`._
 
 ### Desktop Display
 
@@ -32,13 +32,6 @@ _Auto-generated from [seed-health/tokens@2e58945](https://github.com/seed-health
 |---|---|
 | `desktop-display.large` | fontFamily: `Seed Sans`<br>fontSize: `64px`<br>fontWeight: `350`<br>letterSpacing: `-1.28px`<br>lineHeight: `110%` |
 | `desktop-display.small` | fontFamily: `Seed Sans`<br>fontSize: `48px`<br>fontWeight: `350`<br>letterSpacing: `-0.96px`<br>lineHeight: `100%` |
-
-### Mobile Display
-
-| Token | Value |
-|---|---|
-| `mobile-display.large` | fontFamily: `Seed Sans`<br>fontSize: `48px`<br>fontWeight: `350`<br>letterSpacing: `-0.96px`<br>lineHeight: `110%` |
-| `mobile-display.small` | fontFamily: `Seed Sans`<br>fontSize: `40px`<br>fontWeight: `350`<br>letterSpacing: `-0.8px`<br>lineHeight: `110%` |
 
 ### Fixed
 
@@ -72,6 +65,13 @@ _Auto-generated from [seed-health/tokens@2e58945](https://github.com/seed-health
 | Token | Value |
 |---|---|
 | `frosted-glass-strong` | `blur(75px)` |
+
+### Mobile Display
+
+| Token | Value |
+|---|---|
+| `mobile-display.large` | fontFamily: `Seed Sans`<br>fontSize: `48px`<br>fontWeight: `350`<br>letterSpacing: `-0.96px`<br>lineHeight: `110%` |
+| `mobile-display.small` | fontFamily: `Seed Sans`<br>fontSize: `40px`<br>fontWeight: `350`<br>letterSpacing: `-0.8px`<br>lineHeight: `110%` |
 
 ### Screen Grids
 
