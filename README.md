@@ -64,40 +64,40 @@ seed-ds/
 
 Quick value map for agents deciding which references to pull for a given task.
 
-| Path | Load when… | Payoff |
-|---|---|---|
-| `skills/seed/SKILL.md` | Always, first | Activation rules, read order, non-negotiable principles — the map to everything else. |
-| `references/tokens.md` | Any visual output | Canonical color/type/space/radius/motion values. Emit token references, never hex/px. |
-| `references/components.md` | Any UI component work | Shipped registry (what exists in code) + placeholder inventory. Prevents agents inventing new primitives. |
-| `references/voice.md` | Any copy task | Index into `copy/*.md`. Route from here. |
-| `references/copy/tov.md` | Every copy task | Three pillars + funnel-stage voice mix. Keeps register consistent from ad → PDP → onboarding. |
-| `references/copy/mechanics.md` | Punctuation, casing, citations, emoji | Stops Title-Case drift, wrong em-dash, rogue emoji. |
-| `references/copy/vocabulary.md` | Naming a thing, choosing between phrasings | Defined terms + Elevated vs. Simple register. Kills off-brand synonyms. |
-| `references/copy/surfaces.md` | Task targets a named surface | Length, structure, density per surface. Prevents homepage voice on PDP, ad voice on onboarding. |
-| `references/copy/microcopy.md` | CTAs, errors, empty states, toasts, subscription controls | Verbatim approved strings. Use as-is. |
-| `references/copy/compliance.md` | Any health / efficacy / outcome claim | Structure/function vs. disease rules, FDA disclaimer, claim-strength symbols. Prevents regulatory drift. |
-| `references/copy/examples.md` | Checking "what does on-brand read like?" | Approved copy by funnel stage + pillar. Pattern match before drafting. |
-| `references/patterns.md` | Page / module / flow composition | How primitives click into templates. Stops ad-hoc layouts. |
-| `references/responsive.md` | Any responsive output | Breakpoint + grid + container rules. Forces desktop/mobile parity. |
-| `references/motion.md` | Animation, transition, overlay | Canonical easing + durations. Stops arbitrary `ease-in-out 300ms`. |
-| `references/assets.md` | Generating imagery refs or CDN URLs | Bynder vs. Cloudinary vs. Shopify routing, ratio tokens, placeholder rules. Prevents hotlinking Bynder in prod. |
-| `references/lessons.md` | Before shipping | Prod gotchas + decision log. Stops repeated mistakes. |
-| `references/examples.md` | (Placeholder) | Code snippets, regenerated post-refactor. |
-| `references/pages/homepage/` | Top-of-funnel landers, hero patterns | Module sequence + editorial tone for the broadest surface. |
-| `references/pages/pdp/` | Any product detail page | Canonical DS-01 module library: hero → ViaCap → benefit timeline → compare → welcome kit → tiers → testing. The densest composition reference. |
-| `references/pages/plp/` | Collection / category pages | Filter + card grid conventions, cross-product hierarchy. |
-| `references/pages/cart/` | Cart + cross-sell surfaces | Line-item pattern, upsell placement. Flyout variant pending. |
-| `references/pages/checkout/` | Checkout look/feel only | **Visual baseline only — Shopify-governed SPA.** Token + component rules don't apply 1:1. Screenshots only. |
-| `references/pages/account/` | Logged-in dashboards | Member UI conventions, account nav. |
-| `references/pages/subscription/` | Subscription management flows | "Control as a feature" in practice — pause/skip/cancel UX. |
-| `references/pages/reference/` | High-density science / claims pages | DS-01 reference page: how to layer strain tables, citations, claim-strength markers. |
-| `references/pages/cultured/` | Editorial / long-form articles | Microbiome 101: article shell, reading rhythm, pull-quotes, inline science. |
-| `references/pages/approach/` | Brand science story surfaces | Narrative density + proof pacing. |
-| `references/pages/seed-labs/` | Research / publications pages | Credibility proof layout. |
-| `references/pages/faq/` | Help / support look | **Visual baseline only — Gorgias-skinned.** Not a direct-emit reference. |
-| `references/pages/flows/biotics-quiz/` | Pre-purchase quizzes / lead-gen | Multi-step funnel pattern. |
-| `references/pages/flows/web-onboarding/` | Post-purchase activation | DS-01 web onboarding: welcome → personalize → commit sequence. |
-| `references/products/<sku>.md` | Building anything for a specific SKU | Per-product identity (subcategory color, claim hierarchy, imagery voice) that overrides template defaults. Keeps products from all feeling the same inside shared templates. |
+| Path | Load when… | Payoff | Example |
+|---|---|---|---|
+| `skills/seed/SKILL.md` | Always, first | Activation rules, read order, non-negotiable principles — the map to everything else. | Any task. Agent reads this first to learn the read order and principles before touching a token, component, or sentence. |
+| `references/tokens.md` | Any visual output | Canonical color/type/space/radius/motion values. Emit token references, never hex/px. | "Style a CTA button." Agent emits `color.brand.primary` instead of `#1a4d2e`. |
+| `references/components.md` | Any UI component work | Shipped registry (what exists in code) + placeholder inventory. Prevents agents inventing new primitives. | "Add a Badge to the PDP hero." Agent checks the Shipped registry, finds Badge exists in code, uses it instead of inventing a chip. |
+| `references/voice.md` | Any copy task | Index into `copy/*.md`. Route from here. | "Write three hero headlines for DS-01." Agent opens voice.md to figure out which copy files to route into. |
+| `references/copy/tov.md` | Every copy task | Three pillars + funnel-stage voice mix. Keeps register consistent from ad → PDP → onboarding. | Drafting a paid Meta ad vs. an onboarding welcome email. Same brand, different register per funnel stage. |
+| `references/copy/mechanics.md` | Punctuation, casing, citations, emoji | Stops Title-Case drift, wrong em-dash, rogue emoji. | Agent wants "Learn More" on a button. mechanics.md corrects it to "Learn more." |
+| `references/copy/vocabulary.md` | Naming a thing, choosing between phrasings | Defined terms + Elevated vs. Simple register. Kills off-brand synonyms. | Choosing between "gut health pill" and "daily synbiotic." Vocabulary locks in the approved term. |
+| `references/copy/surfaces.md` | Task targets a named surface | Length, structure, density per surface. Prevents homepage voice on PDP, ad voice on onboarding. | Writing a PDP benefit block vs. a homepage hero. Surfaces.md sets length and density per surface. |
+| `references/copy/microcopy.md` | CTAs, errors, empty states, toasts, subscription controls | Verbatim approved strings. Use as-is. | "Write the empty cart state." Agent pulls the verbatim approved string, does not draft fresh. |
+| `references/copy/compliance.md` | Any health / efficacy / outcome claim | Structure/function vs. disease rules, FDA disclaimer, claim-strength symbols. Prevents regulatory drift. | "Write a line about DS-01 improving digestion." Compliance flags the disease claim and reroutes to structure/function wording. |
+| `references/copy/examples.md` | Checking "what does on-brand read like?" | Approved copy by funnel stage + pillar. Pattern match before drafting. | Agent finishes a draft, pattern-matches it against approved examples for that funnel stage + pillar before shipping. |
+| `references/patterns.md` | Page / module / flow composition | How primitives click into templates. Stops ad-hoc layouts. | "Lay out a new campaign landing page." Patterns.md gives the module sequence: hero → proof → comparison → CTA. |
+| `references/responsive.md` | Any responsive output | Breakpoint + grid + container rules. Forces desktop/mobile parity. | "Give me the mobile version." Responsive.md gives the breakpoints, gutters, and container rules. |
+| `references/motion.md` | Animation, transition, overlay | Canonical easing + durations. Stops arbitrary `ease-in-out 300ms`. | Adding a cart drawer. Motion.md supplies the easing curve and 250ms duration instead of a guess. |
+| `references/assets.md` | Generating imagery refs or CDN URLs | Bynder vs. Cloudinary vs. Shopify routing, ratio tokens, placeholder rules. Prevents hotlinking Bynder in prod. | Placing a hero image. Assets.md routes to Cloudinary with `f_auto,q_auto`, not a Bynder hotlink. |
+| `references/lessons.md` | Before shipping | Prod gotchas + decision log. Stops repeated mistakes. | Before emitting a comparison table, agent checks lessons.md and finds "tables need this wrapper below 390px." |
+| `references/examples.md` | (Placeholder) | Code snippets, regenerated post-refactor. | Placeholder. Will return once real snippets regenerate post-refactor. |
+| `references/pages/homepage/` | Top-of-funnel landers, hero patterns | Module sequence + editorial tone for the broadest surface. | "Build a new campaign landing page." Agent loads the homepage capture for module sequence and editorial tone. |
+| `references/pages/pdp/` | Any product detail page | Canonical DS-01 module library: hero → ViaCap → benefit timeline → compare → welcome kit → tiers → testing. The densest composition reference. | "Spin up a new DS-01 variant PDP." Agent follows the canonical DS-01 module library: hero → ViaCap → benefit timeline → compare → welcome kit → tiers → testing. |
+| `references/pages/plp/` | Collection / category pages | Filter + card grid conventions, cross-product hierarchy. | "Build the /products collection page." Agent reads plp/ for filter bar + card grid conventions. |
+| `references/pages/cart/` | Cart + cross-sell surfaces | Line-item pattern, upsell placement. Flyout variant pending. | "Redesign the cart drawer upsell." Agent reads cart/ for line-item pattern and upsell placement. |
+| `references/pages/checkout/` | Checkout look/feel only | **Visual baseline only — Shopify-governed SPA.** Token + component rules don't apply 1:1. Screenshots only. | "Theme our checkout." Agent reads checkout/ and learns token + component rules do not apply 1:1; screenshots only, Shopify Branding API governs. |
+| `references/pages/account/` | Logged-in dashboards | Member UI conventions, account nav. | "Design a new account overview card." Agent reads account/ for member UI conventions and nav. |
+| `references/pages/subscription/` | Subscription management flows | "Control as a feature" in practice — pause/skip/cancel UX. | "Add a pause subscription modal." Agent reads subscription/ for the pause/skip/cancel treatment. |
+| `references/pages/reference/` | High-density science / claims pages | DS-01 reference page: how to layer strain tables, citations, claim-strength markers. | "Build a new strain reference page." Agent reads reference/ for strain tables, citations, and claim-strength markers. |
+| `references/pages/cultured/` | Editorial / long-form articles | Microbiome 101: article shell, reading rhythm, pull-quotes, inline science. | "Lay out a new Cultured article." Agent reads cultured/ for the article shell, reading rhythm, pull-quotes. |
+| `references/pages/approach/` | Brand science story surfaces | Narrative density + proof pacing. | "Build a new 'Our Science' page." Agent reads approach/ for narrative density and proof pacing. |
+| `references/pages/seed-labs/` | Research / publications pages | Credibility proof layout. | "Add a publications index." Agent reads seed-labs/ for the credibility proof layout. |
+| `references/pages/faq/` | Help / support look | **Visual baseline only — Gorgias-skinned.** Not a direct-emit reference. | "Match the help center look." Agent reads faq/ and notes it's Gorgias-skinned, not a direct-emit reference. |
+| `references/pages/flows/biotics-quiz/` | Pre-purchase quizzes / lead-gen | Multi-step funnel pattern. | "Build a lead-gen quiz." Agent reads biotics-quiz/ for the multi-step funnel pattern. |
+| `references/pages/flows/web-onboarding/` | Post-purchase activation | DS-01 web onboarding: welcome → personalize → commit sequence. | "Design the first-time member experience." Agent reads web-onboarding/ for welcome → personalize → commit. |
+| `references/products/<sku>.md` | Building anything for a specific SKU | Per-product identity (subcategory color, claim hierarchy, imagery voice) that overrides template defaults. Keeps products from all feeling the same inside shared templates. | "Build a DM-02 lander." Agent reads products/dm-02.md for the subcategory color, claim hierarchy, and imagery voice that override template defaults. |
 
 Rows for `_template/` folders are intentionally omitted — they're authoring scaffolds, not agent references.
 
