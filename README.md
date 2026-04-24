@@ -60,6 +60,47 @@ seed-ds/
 └── LICENSE
 ```
 
+### Why read what
+
+Quick value map for agents deciding which references to pull for a given task.
+
+| Path | Load when… | Payoff |
+|---|---|---|
+| `skills/seed/SKILL.md` | Always, first | Activation rules, read order, non-negotiable principles — the map to everything else. |
+| `references/tokens.md` | Any visual output | Canonical color/type/space/radius/motion values. Emit token references, never hex/px. |
+| `references/components.md` | Any UI component work | Shipped registry (what exists in code) + placeholder inventory. Prevents agents inventing new primitives. |
+| `references/voice.md` | Any copy task | Index into `copy/*.md`. Route from here. |
+| `references/copy/tov.md` | Every copy task | Three pillars + funnel-stage voice mix. Keeps register consistent from ad → PDP → onboarding. |
+| `references/copy/mechanics.md` | Punctuation, casing, citations, emoji | Stops Title-Case drift, wrong em-dash, rogue emoji. |
+| `references/copy/vocabulary.md` | Naming a thing, choosing between phrasings | Defined terms + Elevated vs. Simple register. Kills off-brand synonyms. |
+| `references/copy/surfaces.md` | Task targets a named surface | Length, structure, density per surface. Prevents homepage voice on PDP, ad voice on onboarding. |
+| `references/copy/microcopy.md` | CTAs, errors, empty states, toasts, subscription controls | Verbatim approved strings. Use as-is. |
+| `references/copy/compliance.md` | Any health / efficacy / outcome claim | Structure/function vs. disease rules, FDA disclaimer, claim-strength symbols. Prevents regulatory drift. |
+| `references/copy/examples.md` | Checking "what does on-brand read like?" | Approved copy by funnel stage + pillar. Pattern match before drafting. |
+| `references/patterns.md` | Page / module / flow composition | How primitives click into templates. Stops ad-hoc layouts. |
+| `references/responsive.md` | Any responsive output | Breakpoint + grid + container rules. Forces desktop/mobile parity. |
+| `references/motion.md` | Animation, transition, overlay | Canonical easing + durations. Stops arbitrary `ease-in-out 300ms`. |
+| `references/assets.md` | Generating imagery refs or CDN URLs | Bynder vs. Cloudinary vs. Shopify routing, ratio tokens, placeholder rules. Prevents hotlinking Bynder in prod. |
+| `references/lessons.md` | Before shipping | Prod gotchas + decision log. Stops repeated mistakes. |
+| `references/examples.md` | (Placeholder) | Code snippets, regenerated post-refactor. |
+| `references/pages/homepage/` | Top-of-funnel landers, hero patterns | Module sequence + editorial tone for the broadest surface. |
+| `references/pages/pdp/` | Any product detail page | Canonical DS-01 module library: hero → ViaCap → benefit timeline → compare → welcome kit → tiers → testing. The densest composition reference. |
+| `references/pages/plp/` | Collection / category pages | Filter + card grid conventions, cross-product hierarchy. |
+| `references/pages/cart/` | Cart + cross-sell surfaces | Line-item pattern, upsell placement. Flyout variant pending. |
+| `references/pages/checkout/` | Checkout look/feel only | **Visual baseline only — Shopify-governed SPA.** Token + component rules don't apply 1:1. Screenshots only. |
+| `references/pages/account/` | Logged-in dashboards | Member UI conventions, account nav. |
+| `references/pages/subscription/` | Subscription management flows | "Control as a feature" in practice — pause/skip/cancel UX. |
+| `references/pages/reference/` | High-density science / claims pages | DS-01 reference page: how to layer strain tables, citations, claim-strength markers. |
+| `references/pages/cultured/` | Editorial / long-form articles | Microbiome 101: article shell, reading rhythm, pull-quotes, inline science. |
+| `references/pages/approach/` | Brand science story surfaces | Narrative density + proof pacing. |
+| `references/pages/seed-labs/` | Research / publications pages | Credibility proof layout. |
+| `references/pages/faq/` | Help / support look | **Visual baseline only — Gorgias-skinned.** Not a direct-emit reference. |
+| `references/pages/flows/biotics-quiz/` | Pre-purchase quizzes / lead-gen | Multi-step funnel pattern. |
+| `references/pages/flows/web-onboarding/` | Post-purchase activation | DS-01 web onboarding: welcome → personalize → commit sequence. |
+| `references/products/<sku>.md` | Building anything for a specific SKU | Per-product identity (subcategory color, claim hierarchy, imagery voice) that overrides template defaults. Keeps products from all feeling the same inside shared templates. |
+
+Rows for `_template/` folders are intentionally omitted — they're authoring scaffolds, not agent references.
+
 ## Current state
 
 🟢 **Tokens:** Source of truth is [seed-health/tokens](https://github.com/seed-health/tokens) (`@seed-health/tokens` on npm). `references/tokens.md` is auto-generated — run `node scripts/sync-tokens.mjs` to refresh from the latest commit.
