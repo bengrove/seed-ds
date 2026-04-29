@@ -20,8 +20,12 @@ On activation, read in this order:
 1. This file (you are here)
 2. `references/tokens.md` for visual primitives
 3. `references/voice.md` as the index to copy rules (points you to `copy/*.md`)
-4. Relevant surface-specific reference: `patterns.md` or `components.md` (the latter is a placeholder — read `my-seed-live/components` and Storybook directly for real components)
-5. `references/lessons.md` before shipping, to avoid known gotchas
+4. `references/components.md` for the Shipped registry, then `references/patterns.md` for module / page composition. For inventory beyond the Shipped registry, read `my-seed-live/components` and the Chromatic Storybook directly.
+5. Conditional visual reads (load when relevant):
+   - `references/responsive.md` for any responsive output (breakpoints, grid, container rules)
+   - `references/motion.md` for animation, transition, or overlay timing
+   - `references/assets.md` for imagery refs or CDN URLs (Bynder vs. Cloudinary vs. Shopify routing)
+6. `references/lessons.md` before shipping, to avoid known gotchas
 
 ### Copy-specific read order
 
@@ -45,6 +49,20 @@ If the task mentions any of these, apply the copy read order:
 - Claim, benefit, RTB (reason to believe), BDQ (buyer decision question)
 - Pause, cancel, resume, skip, subscription flow
 - Tone, voice, on-brand, brand voice
+
+### Surface and product read order
+
+When the task targets a named surface (PDP, homepage, cart, article, etc.) or a specific SKU (DS-01, DM-02, etc.), additionally read:
+
+1. `references/pages/<surface>/index.md` — captured module sequence, component usage, responsive notes, key patterns. Pair with the `desktop.png` and `mobile.png` in the same folder.
+2. `references/products/<sku>.md` — per-product identity (subcategory color, claim hierarchy, imagery voice, compliance flags) that overrides template defaults. Required for any product-specific output. If the file is missing, flag it and proceed using the closest documented product identity.
+
+Platform-governed surfaces (`pages/checkout/`, `pages/faq/`) are **visual baseline only** — do not direct-emit from them. Token + component rules don't apply 1:1 because Shopify (checkout) and Gorgias (faq) own the rendering.
+
+#### Surface trigger keywords
+
+- Page templates: homepage, PDP, PLP, cart, checkout, account, subscription, reference, cultured / article, approach / science, seed-labs / research, faq, biotics-quiz, web-onboarding
+- Per-product work: DS-01, DM-02, AM-02, PM-02, PDS-08, VS-01, Daily Synbiotic, Daily Multivitamin, Focus + Energy, Sleep + Restore, Pediatric Synbiotic, Vaginal Synbiotic
 
 ## Non-negotiable principles
 
