@@ -56,9 +56,9 @@ seed-ds/
         │   ├── microcopy.md          CTAs, errors, empty states (verbatim strings)
         │   ├── compliance.md         FDA / structure-function / strain claims
         │   └── examples.md           Approved copy by funnel stage and pillar
-        ├── patterns.md               🟡 Modules, landers, PDP, member flows (v1)
+        ├── patterns.md               🚧 Placeholder (Atlas boilerplate removed; routes to pages/<surface>/ for real composition)
         ├── responsive.md             Breakpoints, grid, container rules
-        ├── motion.md                 Easing, durations, overlay rules
+        ├── motion.md                 🚧 Placeholder (Atlas boilerplate removed; Seed motion guidance pending)
         ├── assets.md                 🟢 Bynder / Cloudinary / Shopify CDN + Media Container ratios
         ├── lessons.md                Gotchas, decisions, open questions
         ├── examples.md               🚧 Placeholder (regenerated post-refactor)

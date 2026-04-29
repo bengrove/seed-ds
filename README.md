@@ -25,9 +25,9 @@ seed-ds/
 │           │   ├── microcopy.md   CTAs, errors, empty states, subscription controls (verbatim strings)
 │           │   ├── compliance.md  Structure/function vs. disease, FDA disclaimer, strain claims
 │           │   └── examples.md    Approved copy by funnel stage and pillar
-│           ├── patterns.md        Modules, page templates, core flows
+│           ├── patterns.md        🚧 Placeholder — routes agents to pages/<surface>/ for real composition
 │           ├── responsive.md      Breakpoints, grid, container rules
-│           ├── motion.md          Easing, durations, overlay rules
+│           ├── motion.md          🚧 Placeholder — formal Seed motion guidance pending; see file
 │           ├── assets.md          Bynder CDN integration, imagery rules, media container ratios
 │           ├── lessons.md         Gotchas and decisions from prod
 │           ├── examples.md        Code snippets (placeholder — regenerated post-refactor)
@@ -78,9 +78,9 @@ Quick value map for agents deciding which references to pull for a given task.
 | `references/copy/microcopy.md` | CTAs, errors, empty states, toasts, subscription controls | Verbatim approved strings. Use as-is. | "Write the empty cart state." Agent pulls the verbatim approved string, does not draft fresh. |
 | `references/copy/compliance.md` | Any health / efficacy / outcome claim | Structure/function vs. disease rules, FDA disclaimer, claim-strength symbols. Prevents regulatory drift. | "Write a line about DS-01 improving digestion." Compliance flags the disease claim and reroutes to structure/function wording. |
 | `references/copy/examples.md` | Checking "what does on-brand read like?" | Approved copy by funnel stage + pillar. Pattern match before drafting. | Agent finishes a draft, pattern-matches it against approved examples for that funnel stage + pillar before shipping. |
-| `references/patterns.md` | Page / module / flow composition | How primitives click into templates. Stops ad-hoc layouts. | "Lay out a new campaign landing page." Patterns.md gives the module sequence: hero → proof → comparison → CTA. |
+| `references/patterns.md` | Page / module / flow composition | 🚧 Placeholder — routes agents to `pages/<surface>/index.md` for the real composition reference. Distilled cross-surface patterns pending until all 14 surfaces are captured. | "Lay out a new campaign landing page." Patterns.md routes to `pages/homepage/index.md` for the actual DS-01-led module sequence rather than a generic invented one. |
 | `references/responsive.md` | Any responsive output | Breakpoint + grid + container rules. Forces desktop/mobile parity. | "Give me the mobile version." Responsive.md gives the breakpoints, gutters, and container rules. |
-| `references/motion.md` | Animation, transition, overlay | Canonical easing + durations. Stops arbitrary `ease-in-out 300ms`. | Adding a cart drawer. Motion.md supplies the easing curve and 250ms duration instead of a guess. |
+| `references/motion.md` | Animation, transition, overlay | 🚧 Placeholder — Seed motion guidance pending. File points agents to `my-seed-live/components` for actual transition values + safe defaults. | Adding a cart drawer. Until Seed formalizes motion tokens, agent copies the existing drawer's transition values from `my-seed-live/components` rather than inventing them. |
 | `references/assets.md` | Generating imagery refs or CDN URLs | Bynder vs. Cloudinary vs. Shopify routing, ratio tokens, placeholder rules. Prevents hotlinking Bynder in prod. | Placing a hero image. Assets.md routes to Cloudinary with `f_auto,q_auto`, not a Bynder hotlink. |
 | `references/lessons.md` | Before shipping | Prod gotchas + decision log. Stops repeated mistakes. | Before emitting a comparison table, agent checks lessons.md and finds "tables need this wrapper below 390px." |
 | `references/examples.md` | (Placeholder) | Code snippets, regenerated post-refactor. | Placeholder. Will return once real snippets regenerate post-refactor. |

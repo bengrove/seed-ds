@@ -1,121 +1,29 @@
 # Motion
 
-Motion principles, tokens, and usage rules.
+🚧 **Coming soon.** Seed's motion guidance has not been formalized yet. The previous content of this file was Atlas-derived boilerplate — duration tokens, easing curves, and component-specific rules that did not reflect Seed's actual motion design. Removed to avoid agents emitting authoritative-sounding values that aren't sourced from Seed.
 
-## Principles
+## Where motion lives today
 
-1. **Motion has meaning.** Every animation communicates cause and effect.
-2. **Calm by default.** No bouncy, playful springs for utility surfaces.
-3. **Fast over slow.** Most transitions under 200ms.
-4. **Reduce when requested.** Respect `prefers-reduced-motion: reduce`.
+- **Tokens:** No motion tokens are currently published in [seed-health/tokens](https://github.com/seed-health/tokens). When durations / easings are added there, `tokens.md` will pick them up via `scripts/sync-tokens.mjs`.
+- **Component code:** Real transition values live in [seed-health/my-seed-live → components](https://github.com/seed-health/my-seed-live/tree/main/components). Read the actual CSS / styled-components implementation for any shipped component before guessing values.
+- **Storybook:** Visual confirmation of how shipped components animate is in the [Chromatic Storybook](https://www.chromatic.com/library?appId=63b5c3a4b545db5441de378b).
 
-## Duration tokens
+## In the meantime
 
-| Token | Value | Usage |
-|---|---|---|
-| `motion.duration.instant` | 0ms | Accessibility fallback |
-| `motion.duration.fast` | 120ms | Hover, small state changes, toggles |
-| `motion.duration.base` | 200ms | Default for most transitions |
-| `motion.duration.slow` | 320ms | Overlays, page transitions |
-| `motion.duration.slower` | 480ms | Large layout shifts, decorative reveals |
+When an agent needs motion guidance:
 
-## Easing tokens
+1. **Check the shipped component first.** If you're animating something that already exists in `my-seed-live/components`, copy the existing transition values verbatim. Don't invent new durations / easings.
+2. **Default to calm and fast.** Until Seed formalizes motion tokens, lean toward short durations (under 200ms for most transitions) and standard easing (`cubic-bezier(0.4, 0, 0.2, 1)` is a safe default). Avoid bouncy springs on utility surfaces — they read off-brand for a science / health product.
+3. **Always respect `prefers-reduced-motion: reduce`.** This is a non-negotiable accessibility requirement regardless of token state. Disable transforms, keep opacity, skip scroll-triggered animations.
+4. **Animate `transform` and `opacity` only** for high-frequency interactions. Avoid layout-affecting properties (`width`, `height`, `padding`, `margin`).
+5. **Flag the gap in your output.** If you emit motion values, note in your response that they're placeholders pending Seed's motion guidance.
 
-| Token | Curve | Usage |
-|---|---|---|
-| `motion.easing.standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | Default |
-| `motion.easing.entrance` | `cubic-bezier(0, 0, 0.2, 1)` | Elements entering |
-| `motion.easing.exit` | `cubic-bezier(0.4, 0, 1, 1)` | Elements leaving |
-| `motion.easing.spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Rare, for delight moments only |
+## Regeneration plan
 
-## What to animate
+This file gets real content once Seed:
 
-### Default-animate
+1. Documents motion principles in the design system (Figma motion specs, written guidelines, or both).
+2. Publishes duration / easing tokens to `seed-health/tokens` so they sync into `tokens.md`.
+3. Reconciles those tokens against actual transitions in shipped `my-seed-live` components.
 
-- `background-color` on hover and active states
-- `opacity` for fade in/out
-- `transform` for scale, translate (GPU-accelerated)
-- `border-color` for focus states
-
-### Never animate
-
-- `color` on text (causes reflow in some cases, reads as flicker)
-- `width` or `height` (use `transform: scale` instead, or `max-height` with overflow)
-- `padding` or `margin` in repeated interactions
-- Multiple properties simultaneously without a purpose
-
-## Component-specific rules
-
-### Buttons
-
-- Hover: `background-color` only, 120ms standard easing
-- Active: `transform: scale(0.98)`, instant back on release
-- Focus: ring appears instantly, no transition
-- Loading: replace label with spinner, no morph
-
-### Modals and dialogs
-
-- Enter: 320ms entrance easing, fade + translate up 8px
-- Exit: 200ms exit easing, fade + translate down 8px
-- Backdrop: fade only, no blur animation
-
-### Toasts
-
-- Enter: slide up from bottom, 320ms entrance easing
-- Exit: slide down, 200ms exit easing
-- Auto-dismiss timer shown as optional progress bar on the toast edge
-
-### Dropdowns and popovers
-
-- Enter: 200ms entrance, fade + scale from 0.96 to 1
-- Exit: 120ms exit, fade only
-- Origin matches the trigger position
-
-### Page transitions
-
-- Marketing: no page transition. Hard swap is faster.
-- Product: no page transition.
-- Member experience: cross-fade 200ms for tab switches within a surface.
-
-### Skeletons
-
-- Shimmer effect: 1.5s loop, linear, opacity-based
-- Never animate skeleton position
-
-### Accordions
-
-- Expand: 200ms standard easing on `max-height` and `opacity`
-- Collapse: 120ms exit easing
-
-## Stagger
-
-For lists of items entering together, stagger by 40-60ms per item. Cap at 10 items; longer lists use a single group transition.
-
-## Reduced motion
-
-When `prefers-reduced-motion: reduce`:
-
-- All duration tokens become `instant`
-- Transforms are removed; only opacity remains
-- Scroll-triggered animations are disabled
-- Autoplay video is paused
-
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-```
-
-## Performance rules
-
-- Only animate `transform` and `opacity` for high-frequency animations
-- Use `will-change` sparingly and remove after the animation
-- Never animate more than 10 elements simultaneously
-- Test on a mid-range Android at 60fps
-
-## Motion gaps
-
-- _none yet_
+Open this gap in [`lessons.md`](./lessons.md) when an agent hits it during a real build, so we accumulate a list of motion decisions worth canonizing.

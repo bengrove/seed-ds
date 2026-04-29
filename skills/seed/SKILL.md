@@ -20,10 +20,10 @@ On activation, read in this order:
 1. This file (you are here)
 2. `references/tokens.md` for visual primitives
 3. `references/voice.md` as the index to copy rules (points you to `copy/*.md`)
-4. `references/components.md` for the Shipped registry, then `references/patterns.md` for module / page composition. For inventory beyond the Shipped registry, read `my-seed-live/components` and the Chromatic Storybook directly.
+4. `references/components.md` for the Shipped registry. For module / page composition, prefer the captured surfaces in `references/pages/<surface>/index.md` directly — `references/patterns.md` is currently a placeholder that routes you there. For inventory beyond the Shipped registry, read `my-seed-live/components` and the Chromatic Storybook directly.
 5. Conditional visual reads (load when relevant):
    - `references/responsive.md` for any responsive output (breakpoints, grid, container rules)
-   - `references/motion.md` for animation, transition, or overlay timing
+   - `references/motion.md` for animation, transition, or overlay timing — currently a placeholder; routes you to shipped component code in `my-seed-live` for real values until Seed formalizes motion guidance
    - `references/assets.md` for imagery refs or CDN URLs (Bynder vs. Cloudinary vs. Shopify routing)
 6. `references/lessons.md` before shipping, to avoid known gotchas
 

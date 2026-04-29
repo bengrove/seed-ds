@@ -1,184 +1,56 @@
 # Patterns
 
-Composition patterns for Seed surfaces. Each pattern is a proven structure, not a rigid template. Use as a starting point; adapt with judgment.
+🚧 **Coming soon.** Seed-specific composition patterns have not been distilled into this file yet. The previous content was Atlas-derived boilerplate that contradicted the actual seed.com captures (e.g., the documented "PDP baseline" was missing ViaCap, the benefit timeline, the comparison table, the Welcome Kit, the subscription tier selector, and the testing rigor module — all signature DS-01 modules). Removed to avoid agents emitting authoritative-sounding patterns that don't match the live site.
 
----
+## Where composition patterns live today
 
-## Top of funnel landers
+The richest, most accurate composition reference is the live page captures, not this file:
 
-### Goal
+- **[`pages/<surface>/index.md`](./pages/)** — for each captured surface (homepage, pdp, plp, cart, checkout, reference, cultured), the `index.md` documents the actual module sequence, key patterns, component usage, responsive notes, and content. Pair with the `desktop.png` and `mobile.png` in the same folder for visual confirmation.
+- **[`products/<sku>/index.md`](./products/)** — per-product identity that overrides template defaults (subcategory color, claim hierarchy, imagery direction, template deviations).
+- **[`copy/surfaces.md`](./copy/surfaces.md)** — per-surface copy rules (length, structure, density, emoji policy, channel-specific casing).
+- **[`lessons.md`](./lessons.md)** — gotchas and decisions from real builds, including pattern-level edge cases.
 
-Move a cold or warm visitor toward a single, clear next step. Usually subscription start or email capture.
+## Composition reference index
 
-### Default structure
+Captured surfaces (each links to its own structural breakdown):
 
-1. **Hero** — one promise, one primary CTA, supporting visual
-2. **Proof strip** — press logos, user count, or single strongest credential
-3. **Problem / solution** — name what's broken, show Seed's answer
-4. **Science module** — specific mechanism with citation
-5. **Social proof** — testimonials or reviews, real users
-6. **FAQ** — 3-5 questions, the ones that actually block conversion
-7. **Closing CTA** — same action as hero, restated
+| Surface | Capture | Notes |
+|---|---|---|
+| Homepage / top-of-funnel lander | [`pages/homepage/`](./pages/homepage/index.md) | DS-01-led hero, 4-up product grid, ViaCap explainer, Microbiome 101 entry, social proof, press, SeedLabs |
+| PDP (canonical) | [`pages/pdp/`](./pages/pdp/index.md) | DS-01 baseline. Hero → Bundle+Save → ViaCap → benefit timeline → How to Use → attribute grid → comparison table → Welcome Kit → subscription tiers → testing rigor |
+| PLP / collection | [`pages/plp/`](./pages/plp/index.md) | Filter + card grid conventions |
+| Cart | [`pages/cart/`](./pages/cart/index.md) | Standalone cart with cross-sell cards (drawer/flyout pending) |
+| Checkout | [`pages/checkout/`](./pages/checkout/index.md) | **Shopify-governed SPA — visual baseline only.** Token + component rules don't apply 1:1 |
+| Reference / strain detail | [`pages/reference/`](./pages/reference/index.md) | DS-01 strain reference: claim-strength markers, citations, dense-science layout |
+| Cultured / editorial article | [`pages/cultured/`](./pages/cultured/index.md) | Microbiome 101 — long-form article shell, TOC, pull-quotes, inline science |
 
-### Rules
+Pending surfaces (no canonical pattern yet — captures in flight):
 
-- One CTA action per page. Restate it, never vary it.
-- Hero loads above the fold on mobile at 375px width.
-- First meaningful paint under 1.5s. Test before shipping.
-- No carousel for hero content. Carousels hide everything after slide 1.
-- Sticky CTA on mobile appears after the user scrolls past the hero.
-- Social proof uses real names and photos or none at all. Never stock photos with quotes.
+- `account/` (member account home)
+- `subscription/` (pause / skip / cancel flows — also see open flag in `lessons.md`)
+- `approach/` (science narrative)
+- `seed-labs/` (research / publications)
+- `faq/` (Gorgias-skinned — visual baseline only)
+- `flows/biotics-quiz/` (pre-purchase quiz)
+- `flows/web-onboarding/` (post-purchase activation)
 
-### Variations
+## In the meantime
 
-- **Ingredient-led**: lead with the strain or active, science module moves up to #2.
-- **Practitioner-led**: lead with the expert or creator, testimonial moves up to #2.
-- **Outcome-led**: lead with a specific user outcome, testimonial inline with hero.
+When an agent needs to compose a new surface:
 
----
+1. **Find the closest captured surface** in the table above and read its `index.md` plus screenshots. Treat that capture as the structural source of truth.
+2. **Layer in product identity** from `products/<sku>/index.md` if the work targets a specific SKU.
+3. **Apply copy rules** from `copy/surfaces.md` for the matching surface type, plus `copy/tov.md`, `copy/microcopy.md`, `copy/compliance.md` per task.
+4. **Check `lessons.md`** for any prod gotchas that affect the pattern.
+5. **Flag the gap.** If the surface you're composing has no capture (e.g., a pricing page, a blog index), note in your output that you're working without a verified Seed pattern, and document the assumptions you're making so they can become a capture later.
 
-## Product detail page (DS-01 baseline)
+## Regeneration plan
 
-### Goal
+This file gets real, distilled, cross-surface patterns once:
 
-Convert intent into purchase. The visitor is warm; they need confidence, not persuasion.
+1. The pending 7 surfaces are captured (account, subscription, approach, seed-labs, faq, flows/biotics-quiz, flows/web-onboarding) — full 14/14 set.
+2. Cross-surface patterns can be extracted with confidence (e.g., "Seed's hero pattern is X across all 14 surfaces" rather than guessing from 7).
+3. Member-experience and email surfaces have at least one capture each so onboarding / subscription / email patterns aren't aspirational.
 
-### Default structure
-
-1. **Hero** — product, price, primary CTA, subscription vs one-time toggle
-2. **Quick facts** — 3-5 scannable product attributes
-3. **Who it's for** — specific, not "everyone"
-4. **What's inside** — ingredient or strain list with tooltips
-5. **Science module** — mechanism, clinical data, citations
-6. **How it works** — usage, timing, expectations
-7. **Reviews** — sortable, filterable, honest
-8. **FAQ** — product-specific, not generic
-9. **Closing CTA**
-
-### Rules
-
-- Subscribe vs one-time toggle defaults to subscribe. Savings shown inline.
-- Ingredient names link to a detail view or expand inline.
-- Every efficacy claim has a visible citation.
-- Reviews show distribution (1-5 stars breakdown), not just average.
-- No "best seller" badges without a defensible definition.
-
-### Progressive disclosure
-
-- Quick facts summarize; details expand on click.
-- Science module shows the headline; full mechanism expands.
-- Reviews load 5; more on scroll.
-
----
-
-## Member experience
-
-### Core principle
-
-Education and storytelling reduce churn. Clarity and control build trust. Every member surface chooses one or both.
-
-### Onboarding
-
-1. **Welcome** — confirm the subscription, set the expectation
-2. **Timeline** — what arrives when, delivery + first product dose
-3. **How to take it** — simple daily ritual
-4. **What to expect** — realistic timeline for results, plus the first week sensation window
-5. **Support** — how to reach Seed, how to pause if needed
-
-### Education surfaces
-
-- Card-based, one topic per card.
-- Every card has a citation or acknowledges "based on [strain]'s published data."
-- Cards are sorted by user relevance, not chronologically.
-
-### Subscription management
-
-Subscription management surfaces follow the "clarity and control" principle absolutely.
-
-#### Pause flow
-
-1. User taps "Pause subscription"
-2. Choose duration (2 weeks, 1 month, 2 months, custom)
-3. Confirm with explicit resume date
-4. Done. No extra steps.
-
-#### Skip flow
-
-1. User taps "Skip next delivery"
-2. Confirm which delivery is skipped and when the next one arrives
-3. Done.
-
-#### Cancel flow 2.0
-
-Gated on cancellation rate neutrality. See internal PRD for full logic.
-
-1. User taps "Cancel subscription"
-2. Single reason prompt (optional to answer)
-3. Offer alternatives relevant to the reason: pause, change frequency, change product
-4. If declined, confirm cancellation with clear access end date
-5. Done.
-
-Rules:
-- Never require the reason prompt.
-- Never add more than one friction step.
-- Alternatives must match the stated reason (don't offer pause to someone who said "it didn't work").
-- Confirmation copy is neutral, not pleading.
-
-### Account surfaces
-
-- One setting per row. No dense grids of toggles.
-- Destructive actions (delete, cancel) sit at the bottom, not mixed with settings.
-- Password and email changes always require confirmation.
-
----
-
-## Marketing emails
-
-### Structure
-
-1. **Preheader** — second subject line, 40-60 characters
-2. **Single message** — one thing per email
-3. **Primary CTA** — one action, repeated max twice
-4. **Signature** — if needed, from a real human
-
-### Rules
-
-- Subject lines under 50 characters.
-- First sentence earns the rest of the email.
-- No dark patterns in unsubscribe.
-- Plain text fallback always works.
-
----
-
-## Cross-surface patterns
-
-### Progressive disclosure
-
-Default for dense information. Three levels:
-
-1. **Summary** visible by default
-2. **Details** expand on click or scroll
-3. **Full depth** linked to a dedicated page
-
-Apply to: science modules, ingredient lists, clinical data, FAQs, reviews.
-
-### Status communication
-
-Any async action (ordering, saving, canceling) shows state at three moments:
-1. Action triggered (loading)
-2. Action succeeded (confirmation)
-3. Next step (what happens now)
-
-Never assume the user saw a toast. Confirm in context.
-
-### Empty and zero states
-
-Every list, table, or collection has a designed empty state. Empty states are brand moments. See `components.md` for anatomy.
-
----
-
-## Pattern gaps
-
-Add gaps here as they arise.
-
-- _none yet_
+Until then, prefer the per-surface captures.

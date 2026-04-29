@@ -188,12 +188,12 @@ seed-ds/
 │           ├── voice.md          index into copy/*.md
 │           ├── copy/             tov, mechanics, vocabulary, surfaces,
 │           │                     microcopy, compliance, examples
-│           ├── patterns.md
+│           ├── patterns.md         🚧 placeholder (routes to pages/<surface>/ for real composition)
 │           ├── responsive.md
-│           ├── motion.md
+│           ├── motion.md           🚧 placeholder (Atlas boilerplate removed)
 │           ├── assets.md
 │           ├── lessons.md
-│           ├── examples.md
+│           ├── examples.md         🚧 placeholder
 │           ├── pages/            live captures of seed.com templates
 │           │                     (content markdown + desktop/mobile .png)
 │           └── products/         per-product identity within templates
@@ -248,9 +248,9 @@ Each reference file has a single job. If content doesn't fit the job, it belongs
 | `tokens.md` | Token values + usage rules, auto-generated from tokens repo | DS lead |
 | `components.md` | Component inventory with status flags and anatomy | DS lead |
 | `voice.md` | Index into `copy/` — TOV, microcopy, compliance, examples | Brand lead |
-| `patterns.md` | Composition patterns per surface (modules, landers, PDP, member) | DS lead + PM |
+| `patterns.md` | Composition patterns per surface — **placeholder until 14/14 surfaces are captured and cross-surface patterns can be distilled.** Routes agents to `pages/<surface>/` in the meantime. | DS lead + PM |
 | `responsive.md` | Breakpoints, grid, mobile rules | DS lead |
-| `motion.md` | Duration, easing, overlay rules | DS lead |
+| `motion.md` | Duration, easing, overlay rules — **placeholder until Seed formalizes motion guidance** (Atlas boilerplate removed) | DS lead |
 | `assets.md` | Bynder URL patterns, Media Container ratios, imagery, video, alt text | Creative lead |
 | `lessons.md` | Gotchas, decision log, open questions | Everyone |
 | `examples.md` | Copy-ready snippets for common surfaces | DS lead |
