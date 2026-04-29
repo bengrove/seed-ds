@@ -90,6 +90,25 @@ Keep each lesson scannable. One paragraph max.
 
 ---
 
+### Per-product subcategory colors aren't in seed-health/tokens (6-step ramp not exposed)
+
+**Context:** Capturing `products/<sku>/index.md` files and extracting subcategory colors from live seed.com PDPs and design system source.
+**What went wrong:** The design system defines a 6-step ramp per product (`primary`, `secondary`, `light`, `medium`, `dark`, `highlight`). The live my-seed-live CSS currently only exposes the `medium` shade as `--color--<sku>` — e.g. AM-02's `--color--am: #9f995b` is the *medium* step, not the primary. The actual AM-02 primary is the brighter citrine `#EAE081`. Picking the live var as the "primary color" leads agents to use the muted middle of the ramp instead of the lead brand accent. None of the six steps for any product are in `seed-health/tokens`.
+**Fix (interim):** Each product file in `products/<sku>/index.md` documents the full 6-step ramp where known, plus the live var (`--color--<sku>`) and its role in the ramp (`live_var_role: medium`). Verified pattern across DM-02, AM-02, and PM-02: `--color--<sku>` maps to `ramp.medium` and `--color--<sku>-redemption` maps to `ramp.secondary` — every time. DS-01, PDS-08, VS-01, and Daily Essentials Duo use brand-primary `color.primary.seed-green` directly with no per-product ramp; DM-02, AM-02, PM-02 each have their own 6-step ramp.
+**Fix (durable):** Publish the 6-step subcategory ramps in `seed-health/tokens` (e.g. `subcategory.am.primary`, `subcategory.am.medium`) so they sync into `tokens.md` and agents can reference them by name. Until then, `products/<sku>/index.md` is the single source of truth for non-brand-primary product colors.
+**Date:** 2026-04-29
+
+---
+
+### PDS-08 PDP uses Cloudinary for product imagery, not Shopify CDN
+
+**Context:** Capturing `products/pds-08/index.md` and extracting hero imagery URLs.
+**What went wrong:** PDS-08's PDP predates the Shopify-CDN convention used by the rest of the line — its hero, step icons, and sustainability illustrations all live on `res.cloudinary.com/dljz0lko8/...` (timestamps from 2022). Other capsule PDPs (DS-01, DM-02, AM-02, PM-02) use `cdn.shopify.com/s/files/1/0929/7828/2785/...`.
+**Fix:** Don't treat PDS-08's Cloudinary hosting as a new pattern. New PDP imagery goes on Shopify CDN. PDS-08 is a known legacy exception — flagged in its product file's `hero_imagery.note` and `Template deviations` section.
+**Date:** 2026-04-29
+
+---
+
 ## Decision log
 
 Record of architectural decisions that affect the skill.

@@ -49,13 +49,14 @@ seed-ds/
 │           │       ├── biotics-quiz/    Pre-purchase funnel
 │           │       └── web-onboarding/  DS-01 web onboarding as canonical example
 │           └── products/          Per-product visual/content identity within templates
-│               ├── _template.md
-│               ├── ds-01.md             Daily Synbiotic
-│               ├── dm-02.md             Daily Multivitamin
-│               ├── am-02.md             Focus + Energy
-│               ├── pm-02.md             Sleep + Restore
-│               ├── pds-08.md            Pediatric Synbiotic
-│               └── vs-01.md             Vaginal Synbiotic
+│               ├── _template/           Starter scaffold for new product captures
+│               ├── ds-01/               Daily Synbiotic — index.md + desktop/mobile .png
+│               ├── dm-02/               Daily Multivitamin
+│               ├── am-02/               Energy + Focus
+│               ├── pm-02/               Sleep + Restore
+│               ├── pds-08/              Pediatric Synbiotic
+│               ├── vs-01/               Vaginal Synbiotic
+│               └── daily-essentials-duo/ DS-01 + DM-02 bundle
 ├── README.md                      You are here
 └── LICENSE
 ```
@@ -97,7 +98,7 @@ Quick value map for agents deciding which references to pull for a given task.
 | `references/pages/faq/` | Help / support look | **Visual baseline only — Gorgias-skinned.** Not a direct-emit reference. | "Match the help center look." Agent reads faq/ and notes it's Gorgias-skinned, not a direct-emit reference. |
 | `references/pages/flows/biotics-quiz/` | Pre-purchase quizzes / lead-gen | Multi-step funnel pattern. | "Build a lead-gen quiz." Agent reads biotics-quiz/ for the multi-step funnel pattern. |
 | `references/pages/flows/web-onboarding/` | Post-purchase activation | DS-01 web onboarding: welcome → personalize → commit sequence. | "Design the first-time member experience." Agent reads web-onboarding/ for welcome → personalize → commit. |
-| `references/products/<sku>.md` | Building anything for a specific SKU | Per-product identity (subcategory color, claim hierarchy, imagery voice) that overrides template defaults. Keeps products from all feeling the same inside shared templates. | "Build a DM-02 lander." Agent reads products/dm-02.md for the subcategory color, claim hierarchy, and imagery voice that override template defaults. |
+| `references/products/<sku>/index.md` (+ desktop/mobile .png) | Building anything for a specific SKU | Per-product identity (subcategory color, hero imagery URLs, claim hierarchy, compliance scope, imagery voice) that overrides template defaults. Keeps products from feeling the same inside shared templates. | "Build a DM-02 lander." Agent reads `products/dm-02/index.md` for the `--color--dm` subcategory color, the bioavailability claim language, and the muted-olive imagery direction that override the canonical PDP template. |
 
 Rows for `_template/` folders are intentionally omitted — they're authoring scaffolds, not agent references.
 
@@ -111,7 +112,7 @@ Rows for `_template/` folders are intentionally omitted — they're authoring sc
 
 🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member experience flows. More surfaces pending.
 
-🟡 **Live references:** `references/pages/` captures raw site templates (content markdown + desktop/mobile screenshots). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 7/14 page templates captured, 0/6 products populated.
+🟡 **Live references:** `references/pages/` captures raw site templates (content markdown + desktop/mobile screenshots). `references/products/` captures per-product identity (subcategory color, claims, imagery direction) keyed to a template. Currently 7/14 page templates captured, 7/7 product files drafted (DS-01, DM-02, AM-02, PM-02, PDS-08, VS-01, Daily Essentials Duo) — desktop + mobile PNGs still need to be added per product.
 
 ## Setup
 
