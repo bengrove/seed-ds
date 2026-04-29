@@ -79,9 +79,15 @@ seed-ds/
         │   └── flows/
         │       ├── biotics-quiz/     ⏳
         │       └── web-onboarding/   ⏳
-        └── products/                 🔴 0/6 populated (per-product identity within templates)
-            ├── _template.md
-            └── (ds-01, dm-02, am-02, pm-02, pds-08, vs-01 — pending)
+        └── products/                 🟢 7/7 captured (per-product identity within templates)
+            ├── _template/                    Updated to 6-step ramp + screenshot fields
+            ├── ds-01/                ✅ Daily Synbiotic (brand-primary, canonical)
+            ├── dm-02/                ✅ Daily Multivitamin (own ramp, sage)
+            ├── am-02/                ✅ Energy + Focus (own ramp, citrine)
+            ├── pm-02/                ✅ Sleep + Restore (own ramp, mint)
+            ├── pds-08/               ✅ Pediatric Daily Synbiotic (brand-primary, legacy template)
+            ├── vs-01/                ✅ Vaginal Synbiotic (brand-primary, waitlist, strict compliance)
+            └── daily-essentials-duo/ ✅ DS-01 + DM-02 bundle (brand-primary)
 ```
 
 Legend: 🟢 stable · 🟡 in progress · 🔴 not started · 🚧 placeholder · ✅ done · ⏳ pending
@@ -96,7 +102,9 @@ From [README.md](README.md) Current state section:
 - 🟢 **Voice:** Seven files under `copy/` cover tone, mechanics, vocabulary, surfaces, microcopy, compliance, examples. Source: Brand TOV 2025 + Seed Copy Style Guide 2026 + Seed UX Best Practices.
 - 🟡 **Components:** Finishing in Figma + dev refactor underway. `components.md` is a placeholder with a "Shipped components" registry (Badge shipped 2026-04-22). Full inventory will be regenerated from `my-seed-live/components` + Storybook post-refactor.
 - 🟡 **Patterns:** v1 covers top-of-funnel landers, DS-01 PDP, member flows. More surfaces pending.
-- 🟡 **Live references:** 7/14 page templates captured, 0/6 products populated.
+- 🟡 **Live references:** 7/14 page templates captured. 🟢 7/7 product files populated with index.md + desktop/mobile screenshots (DS-01, DM-02, AM-02, PM-02, PDS-08, VS-01, Daily Essentials Duo).
+- 🟢 **README "Why read what" table:** Capability map keyed by path with Path / Load when / Payoff / Example columns. Tells agents which references to load for which task.
+- 🟢 **SKILL.md read order:** Aligned with the README table — covers tokens, components, voice/copy, conditional reads (responsive / motion / assets), surface + product captures, lessons.md before shipping.
 
 ---
 
@@ -120,24 +128,47 @@ For each pending template:
 
 ---
 
+## Product capture workflow
+
+Products use the same folder shape as pages (`<sku>/index.md` + `desktop.png` + `mobile.png`). Different content focus: each product file captures *identity inside the template* (subcategory color ramp, hero imagery URLs, claim hierarchy, compliance scope, imagery direction, template deviations) rather than the structural layout.
+
+When seed.com is reachable via Claude in Chrome, fetch directly:
+1. User loads the product PDP in the MCP tab group (`seed.com` requires manual nav — Cloudflare blocks the navigate tool's permission flow).
+2. Claude pulls page text via `get_page_text` and runs JS via `javascript_tool` to extract: per-product CSS color vars, dominant background-color tally, Shopify CDN imagery URLs.
+3. User shares the design system color panel (6-step ramp screenshot) when one exists.
+4. Claude drafts `products/<sku>/index.md` with frontmatter (color ramp, hero imagery, key claims, compliance notes, surfaces) + body (visual identity, content specifics, imagery direction, template deviations, related links).
+5. User captures full-page desktop (1440px) + mobile (390px) screenshots, runs the compress script, drops them into the product folder.
+6. Claude commits when user confirms.
+
+**Color ramp pattern (verified across DM-02, AM-02, PM-02):** The design system defines a 6-step ramp per product (`primary`, `secondary`, `light`, `medium`, `dark`, `highlight`). The live my-seed-live CSS exposes only `medium` as `--color--<sku>` and `secondary` as `--color--<sku>-redemption`. None of the 6 steps are in `seed-health/tokens` yet — flagged in `lessons.md` as a token gap. DS-01, PDS-08, VS-01, and Daily Essentials Duo (synbiotic-category) all use `color.primary.seed-green` directly without their own ramp.
+
+**PDS-08 Cloudinary exception:** PDS-08's PDP imagery sits on Cloudinary, not Shopify CDN (legacy PDP, predates the convention). Don't treat as a model — flagged in its product file and `lessons.md`.
+
+---
+
 ## Current todo list (session handoff)
 
 Completed:
-- Scaffolds (pages/_template, products/_template)
+- Scaffolds (pages/_template, products/_template — products updated to 6-step ramp standard)
 - 14-template list confirmed
-- 7 captures done: homepage, plp, pdp, cart, checkout, cultured, reference
+- 7 page captures done: homepage, plp, pdp, cart, checkout, cultured, reference
+- All 7 product files captured: DS-01, DM-02, AM-02, PM-02, PDS-08, VS-01, Daily Essentials Duo (each with index.md + desktop.png + mobile.png)
+- README "Why read what" capability table (Path / Load when / Payoff / Example) covering all references
+- SKILL.md read order aligned with the table — main read order, copy-specific, surface + product, trigger keywords for each
+- lessons.md updated with per-product token gap, PDS-08 Cloudinary legacy exception
+- ARCHITECTURE Decision 04 rewritten to reflect code-first sourcing (my-seed-live → Storybook target state)
+- tokens.md sync flow: scripts/sync-tokens.mjs pulls from seed-health/tokens; PR open at seed-health/tokens#25 to regenerate stale build outputs after the mobile-display reorder
 
 In progress:
-- `account` capture (up next)
+- `account` page capture (up next)
 
-Pending captures (7):
+Pending page captures (6):
 - subscription, approach, seed-labs, faq, flows/biotics-quiz, flows/web-onboarding
-
-Pending product files (7):
-- DS-01, DM-02, AM-02, PM-02, PDS-08, VS-01, Daily Essentials Duo
 
 Pending:
 - Cross-link pages/ and products/ from patterns.md / tokens.md / voice.md
+- Follow-up PR to seed-health/tokens publishing the per-product 6-step ramps as `subcategory.<sku>.*` tokens (so `tokens.md` carries them and agents can reference by name)
+- Smoke test the SKILL.md ↔ README table alignment in a Claude Code session ("For a DS-01 promo email, which references should you read?")
 
 ---
 
@@ -148,6 +179,8 @@ Pending:
 2. **Footnote symbol system.** `reference/index.md` (DS-01 reference page) has `‡`, `††`, `†††` footnotes in the Strain-Specific Benefit Studies table without inline definitions. These are claim-strength markers that tie back to `copy/compliance.md` — needs reconciliation.
 
 3. **Shipped component enforcement.** User asked how to force agents to use shipped components (Badge) vs inventing one. Was about to edit SKILL.md with stronger enforcement language (new principle, read-order step, output rule) + add a "How to use shipped components" section to `components.md`. Paused before implementing. Pick up here when fresh session resumes.
+
+4. **Per-product subcategory color tokens.** DM-02, AM-02, PM-02 each have a 6-step design-system ramp, but only the `medium` and `secondary` shades are exposed in live my-seed-live CSS as `--color--<sku>` / `--color--<sku>-redemption`. None of the six steps are in `seed-health/tokens`. Each product file documents the full ramp inline. Durable fix: PR to `seed-health/tokens` publishing `subcategory.<sku>.*` tokens. See `lessons.md`.
 
 ---
 
@@ -178,15 +211,15 @@ Pending:
 
 ## Recent commit history (top 10)
 
-Run `git log --oneline -10` for the live list. As of 2026-04-22:
+Run `git log --oneline -10` for the live list. As of 2026-04-29:
 
+- `b080584` Capture all 7 product files with full visual identity
+- `6cc19da` Align SKILL.md read order with the new "Why read what" table
+- `a55d968` Add Example column to "Why read what" table
+- `3e89050` Add "Why read what" value map to README
+- `a25fc9d` Sync tokens.md from seed-health/tokens@c3369cb
+- `7c9691c` Merge branch 'main' of https://github.com/bengrove/seed-ds
+- `fc1bf52` Update Decision 04 to reflect code-first component sourcing
+- `a4bb683` Refine architecture documentation for clarity and structure
+- `bc9c2bf` Add CLAUDE.md project memory file
 - `715c562` Link Badge to real code and stories paths in my-seed-live
-- `bac70c9` Add Shipped components registry to components.md; first entry: Badge
-- `08c7007` Add cultured (Microbiome 101) and reference (DS-01) captures; bump count to 7/14
-- `5573138` Add cart and checkout captures
-- `5fe02f0` Remove .h2d historical note from Decision 11
-- `97216a3` Drop .h2d captures from workflow and retroactively remove existing ones
-- `1e742e1` Replace examples.md boilerplate with coming-soon placeholder
-- `9080dad` Restructure assets.md for headless Shopify: Bynder/Cloudinary/Shopify CDN
-- `399f7fa` Replace components.md boilerplate with a coming-soon placeholder
-- `86fc651` Mark components.md as DRAFT; track future regeneration in ARCHITECTURE
